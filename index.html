@@ -307,6 +307,7 @@
     .game-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .game-card { overflow: hidden; border: 1px solid var(--pearl); border-radius: 14px; background: var(--paper); }
     .game-image { position: relative; display: flex; min-height: 132px; align-items: flex-end; padding: 13px; overflow: hidden; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+    .game-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .game-image::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.45), transparent 62%); content: ""; }
     .game-image span { z-index: 1; }
     .game-image.game-one { background: linear-gradient(140deg, #1e1d35, #9a5fbd 45%, #f7be7a); }
@@ -1318,6 +1319,49 @@ itch.io 지표
       addTool.addEventListener('click', () => addFromTemplate('tool-template', 'tool-grid', '프로그램', '.tool-name'));
       addGame.addEventListener('click', () => addFromTemplate('game-template', 'game-list', '게임', '.game-image span'));
       addPortfolio.addEventListener('click', () => addFromTemplate('portfolio-template', 'portfolio-grid', '포트폴리오 카드', '.case-copy h2'));
+
+      const steamGameExperience = [
+        ['2584990', 'Shadowverse: Worlds Beyond', '834.2'], ['1049590', '이터널 리턴', '3,753.2'], ['359550', '톰 클랜시의 레인보우식스 시즈', '555.6'], ['578080', 'PUBG: BATTLEGROUNDS', '357.1'], ['1623730', 'Palworld / 팰월드', '291.6'], ['899770', 'Last Epoch', '211.1'], ['3308670', '소녀전선2: 망명', '136.6'], ['1449850', 'Yu-Gi-Oh! Master Duel', '119.5'], ['892970', 'Valheim', '74.7'], ['1140150', '동방광요야 ~ Lost Branch of Legend', '68'], ['1621690', 'Core Keeper', '62.2'], ['322330', "Don't Starve Together", '59.6'], ['2468550', '비비드 월드', '49.3'], ['2739990', '작혼: 리치 마작', '47.4'], ['2868840', 'Slay the Spire 2', '46.3'], ['3241660', 'R.E.P.O.', '39.7'], ['1372810', '팀파이트 매니저', '39.3'], ['4347080', '보이드 다이버 : Escape from the Abyss Demo', '35.4'], ['527230', 'For The King', '35.2'], ['1963370', 'No One Survived', '35'], ['275850', "No Man's Sky", '32.5'], ['2379780', 'Balatro', '32'], ['5075020', '꼬미 (Little LUMI Model)', '29'], ['3164500', 'Schedule I', '27'], ['1966720', 'Lethal Company', '23.4'], ['568220', 'Lobotomy Corporation', '19'], ['2698780', 'ContractVille', '18.5'], ['3419430', 'Bongo Cat', '16'], ['924970', 'Back 4 Blood', '15.9'], ['2784470', '9 Kings 나인 킹즈', '15.6'], ['582010', 'Monster Hunter: World', '15.2'], ['413150', 'Stardew Valley', '15.1'], ['3167020', 'Escape from Duckov', '14.8'], ['1169040', 'Necesse: 네세스', '14.7'], ['1782120', 'ZERO Sievert', '13.6'], ['108600', 'Project Zomboid', '11.8'], ['648800', 'Raft', '11.5'], ['1188930', '크로노 아크', '10.3'], ['671860', 'BattleBit Remastered', '10.1'], ['3527290', 'PEAK', '9.3'], ['646570', 'Slay the Spire', '9.2'], ['2828860', 'The Forever Winter', '8.2'], ['2185060', '투 포인트 뮤지엄', '8'], ['1948280', 'Stacklands', '7.4'], ['3059520', 'F1® 25', '7.3'], ['1203620', '인슈라오디드 (Enshrouded)', '7.3'], ['1584090', "동방야작식당 - Touhou Mystia's Izakaya", '7.1'], ['2436940', '세피리아', '6.6'], ['1649080', 'Two Point Campus', '6.5'], ['281990', 'Stellaris', '6.4'], ['3101040', 'Magical Girl Witch Trials', '6.3'], ['3400000', 'Cubic Odyssey', '6.1'], ['1062520', 'Dinkum (딩컴)', '6.1'], ['4508340', '이환', '6.1'], ['1363080', 'Manor Lords 매너 로드', '5.9'], ['2420510', 'HoloCure - Save the Fans!', '5.8'], ['2273420', '관리인의 엿보기', '5.5'], ['2878420', '옛날 재래시장 시뮬레이터', '5.3'], ['2881650', 'Content Warning', '5.2'], ['535930', 'Two Point Hospital', '5.2'], ['1868140', '데이브 더 다이버', '5.2'], ['2683150', 'Ale & Tale Tavern', '5.2'], ['2737070', 'Crime Simulator', '5.1'], ['3070070', 'TCG Card Shop Simulator', '4.8'], ['477160', 'Human Fall Flat', '4.5'], ['1972440', 'Shotgun King: The Final Checkmate', '4.4'], ['1172620', 'Sea of Thieves', '4'], ['1600360', 'The Cycle Playtest', '4'], ['1978100', '그랑프리 스토리 (Grand Prix Story)', '3.3'], ['1962700', '서브노티카 2', '3']
+      ];
+
+      function makeSteamGameCard([appId, name, hours]) {
+        const card = document.createElement('article');
+        card.className = 'game-card reorderable';
+
+        const imageSlot = document.createElement('div');
+        imageSlot.className = 'game-image';
+        imageSlot.dataset.imageSlotBound = 'true';
+        imageSlot.setAttribute('aria-label', `${name} 대표 이미지`);
+        const image = document.createElement('img');
+        image.src = `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${appId}/header.jpg`;
+        image.alt = '';
+        image.loading = 'lazy';
+        const imageName = document.createElement('span');
+        imageName.textContent = name;
+        imageSlot.append(image, imageName);
+
+        const body = document.createElement('div');
+        body.className = 'game-body';
+        const title = document.createElement('h3');
+        title.textContent = name;
+        const details = document.createElement('p');
+        details.className = 'game-details';
+        const record = document.createElement('span');
+        const label = document.createElement('b');
+        label.textContent = '플레이 시간';
+        record.append(label, ` ${hours}시간`);
+        details.append(record);
+        body.append(title, details);
+        card.append(imageSlot, body);
+        return card;
+      }
+
+      const gameList = document.querySelector('#game-list');
+      if (gameList) {
+        const gameCards = document.createDocumentFragment();
+        steamGameExperience.forEach((game) => gameCards.append(makeSteamGameCard(game)));
+        gameList.replaceChildren(gameCards);
+      }
       bindImageSlots();
       bindFileSlots();
       bindReorderCards();
