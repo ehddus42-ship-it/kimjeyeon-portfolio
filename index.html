@@ -618,7 +618,7 @@ itch.io 지표
                 <h3 data-editor-bound="true" data-markdown="기업협약 프로젝트" contenteditable="false">기업협약 프로젝트</h3>
               <button type="button" class="card-reorder-handle" aria-label="카드 순서 변경" title="누른 채 움직여 순서 변경">↕</button></article>
             </div>
-            <div class="project-video-popup" id="symbion-video-popup" aria-hidden="true" style="left: 917px; top: 592px;" hidden=""><video muted="" playsinline="" loop="" preload="metadata" tabindex="-1"><source src="assets/videos/symbion-pv.mp4" type="video/mp4"></video></div>
+            <div class="project-video-popup" id="symbion-video-popup" aria-hidden="true" hidden><video muted="" playsinline="" loop="" preload="metadata" tabindex="-1"><source src="assets/videos/symbion-pv.mp4" type="video/mp4"></video></div>
           </section>
 
           <section class="card section-card" aria-labelledby="skills-title">
@@ -1320,6 +1320,12 @@ itch.io 지표
 
       let lastPointer = null;
 
+      // Keep the fixed preview out of the resume layout so its viewport position
+      // is never affected by the card or by the document scroll position.
+      if (symbionPopup && symbionPopup.parentElement !== document.body) {
+        document.body.append(symbionPopup);
+      }
+
       function placeSymbionPopup(event) {
         if (!symbionCard || !symbionPopup) return;
         const card = symbionCard.getBoundingClientRect();
@@ -1329,7 +1335,8 @@ itch.io 지표
           lastPointer = { x: event.clientX, y: event.clientY };
         }
         const pointer = lastPointer || { x: card.right, y: card.top + (card.height / 2) };
-        const left = Math.min(Math.max(12, pointer.x + 2), window.innerWidth - width - 12);
+        const gap = 16;
+        const left = Math.min(Math.max(12, pointer.x + gap), window.innerWidth - width - 12);
         const top = Math.min(Math.max(12, pointer.y - (height / 2)), window.innerHeight - height - 12);
         symbionPopup.style.left = `${left}px`;
         symbionPopup.style.top = `${top}px`;
@@ -1338,6 +1345,7 @@ itch.io 지표
       function showSymbionPopup(event) {
         if (!symbionPopup || !symbionVideo) return;
         symbionPopup.hidden = false;
+        symbionPopup.setAttribute('aria-hidden', 'false');
         placeSymbionPopup(event);
         symbionVideo.muted = true;
         symbionVideo.defaultMuted = true;
@@ -1352,6 +1360,7 @@ itch.io 지표
         symbionVideo.pause();
         symbionVideo.currentTime = 0;
         symbionPopup.hidden = true;
+        symbionPopup.setAttribute('aria-hidden', 'true');
         lastPointer = null;
       }
 
@@ -1367,6 +1376,7 @@ itch.io 지표
           }, 0);
         });
         window.addEventListener('resize', placeSymbionPopup);
+        window.addEventListener('scroll', () => placeSymbionPopup(), { passive: true });
       }
       setEditMode(false);
     }());
