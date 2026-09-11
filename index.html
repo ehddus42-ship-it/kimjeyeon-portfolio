@@ -1273,15 +1273,17 @@ itch.io 지표
         if (pageMenu) pageMenu.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      function showCover() {
+      function showCover(shouldScroll = true) {
         document.body.classList.add('is-cover-page');
         tabs.forEach((tab) => {
           tab.classList.remove('is-active');
           tab.setAttribute('aria-selected', 'false');
         });
         panels.forEach((panel) => panel.classList.remove('is-active'));
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (shouldScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+
+      showCover(false);
 
       tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => activate(tab.dataset.view));
