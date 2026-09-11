@@ -1430,6 +1430,8 @@ itch.io 지표
 
       const terraria = steamGameExperience.find(([appId]) => appId === '105600');
       if (terraria) terraria[2] = '123.4';
+      const rainbowSixSiege = steamGameExperience.find(([appId]) => appId === '359550');
+      if (rainbowSixSiege) rainbowSixSiege[2] = '1,035.6';
       const excludedSteamAppIds = new Set(['2273420']);
       const visibleSteamGameExperience = steamGameExperience.filter(([appId]) => !excludedSteamAppIds.has(appId));
       visibleSteamGameExperience.sort((a, b) => Number(b[2].replace(/,/g, '')) - Number(a[2].replace(/,/g, '')));
@@ -1446,6 +1448,16 @@ itch.io 지표
         if (savedCard) updateCustomGameCard(savedCard, game);
         else gameList.append(makeCustomGameCard(game));
       });
+      if (gameList) {
+        const rainbowSixCard = Array.from(gameList.querySelectorAll('.game-card')).find((card) => card.querySelector('.game-body h3')?.textContent.trim() === '톰 클랜시의 레인보우식스 시즈');
+        const record = rainbowSixCard?.querySelector('.game-details > span');
+        if (record) {
+          record.replaceChildren();
+          const label = document.createElement('b');
+          label.textContent = '플레이 시간';
+          record.append(label, ' 1,035.6시간');
+        }
+      }
       bindImageSlots();
       bindFileSlots();
       bindReorderCards();
