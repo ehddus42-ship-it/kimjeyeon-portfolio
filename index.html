@@ -284,6 +284,12 @@
     .project-card p { margin: 0; color: var(--slate); font-size: 12px; line-height: 1.65; }
     .project-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 0; padding-top: 17px; }
     .project-meta span { padding: 4px 8px; border-radius: var(--radius-pill); background: var(--ash); color: #555; font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+    .project-card--symbion { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 34%); gap: 18px; align-items: stretch; }
+    .project-copy { display: flex; min-width: 0; flex-direction: column; }
+    .project-hero-video { position: relative; min-height: 185px; overflow: hidden; border-radius: 10px; background: #10121b; }
+    .project-hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .project-hero-video::after { position: absolute; right: 10px; bottom: 10px; padding: 4px 7px; border-radius: var(--radius-pill); background: rgba(16, 18, 27, .72); color: rgba(255,255,255,.9); content: "HOVER TO PLAY"; font-size: 9px; font-weight: 700; letter-spacing: .08em; pointer-events: none; transition: opacity .18s ease; }
+    .project-hero-video:hover::after { opacity: 0; }
 
     .skill-layout { display: grid; grid-template-columns: 1fr; gap: 18px; }
     .skills-copy { margin: 12px 0 0; color: var(--slate); font-size: 13px; line-height: 1.7; }
@@ -342,9 +348,6 @@
     .portfolio-lede p { max-width: 610px; margin: 0; color: var(--slate); font-size: 15px; line-height: 1.8; }
     .case-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
     .case-card { position: relative; display: flex; aspect-ratio: 1 / 1.5; min-height: 0; flex-direction: column; gap: 14px; padding: 16px; overflow: hidden; border-radius: var(--radius-card); background: var(--paper); box-shadow: var(--shadow-card); }
-    .project-video-popup { position: fixed; z-index: 9999; width: min(640px, calc(100vw - 32px)); aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(255, 255, 255, .25); border-radius: 16px; background: #10121b; box-shadow: 0 18px 42px rgba(0, 0, 0, .32); pointer-events: none; }
-    .project-video-popup[hidden] { display: none !important; }
-    .project-video-popup video { display: block; width: 100%; height: 100%; object-fit: cover; }
     .case-thumb { position: relative; flex: 0 0 auto; min-height: 0; aspect-ratio: 1.45 / 1; overflow: hidden; border-radius: 12px; }
     .case-thumb.a { background: linear-gradient(130deg, #f0c8bd, #b55b5d 55%, #3e405e); }
     .case-thumb.b { background: linear-gradient(130deg, #dde4cf, #709681 55%, #3f5c71); }
@@ -442,6 +445,8 @@
       .section-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
       .game-list, .tool-grid { grid-template-columns: 1fr; }
       .project-card { min-height: 180px; }
+      .project-card--symbion { grid-template-columns: 1fr; }
+      .project-hero-video { min-height: 0; aspect-ratio: 16 / 9; }
       .project-number { margin-bottom: 20px; }
       .skill-layout { grid-template-columns: 1fr; gap: 18px; }
       .cover-step { padding: 20px; }
@@ -452,7 +457,6 @@
       .case-stack { grid-template-columns: 1fr; }
       .case-thumb { min-height: 92px; }
       .case-copy h2 { font-size: 16px; }
-      .project-video-popup { width: calc(100vw - 24px); border-radius: 12px; }
       .landing-hero, .landing-section { padding: 22px 20px; }
       .landing-cover { min-height: auto; padding-bottom: 28px; }
       .landing-hero { min-height: 290px; }
@@ -601,6 +605,7 @@
                 <div class="project-meta"><span data-editor-bound="true" data-markdown="2명" contenteditable="false">2명</span><span data-editor-bound="true" data-markdown="PD" contenteditable="false">PD</span><span data-editor-bound="true" data-markdown="PM" contenteditable="false">PM</span><span data-editor-bound="true" data-markdown="시스템" contenteditable="false">시스템</span></div>
               <button type="button" class="card-reorder-handle" aria-label="카드 순서 변경" title="누른 채 움직여 순서 변경">↕</button></article>
               <article class="project-card project-card--symbion reorderable">
+                <div class="project-copy">
                 <span class="project-number" data-editor-bound="true" data-markdown="02 / (2026.07—09)" contenteditable="false">02 / (2026.07—09)</span>
                 <h3 data-editor-bound="true" data-markdown="심비온 · 액션 플랫포머&nbsp; &nbsp;https://mystia1.itch.io/symbion" contenteditable="false">심비온 · 액션 플랫포머&nbsp; &nbsp;https://mystia1.itch.io/symbion</h3>
                 <p data-editor-bound="true" data-markdown="내 역할:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 팀장 | 이미지 리소스 제작, 보스 패턴 기획, 스킬 기획, 시스템 보조
@@ -612,13 +617,14 @@ itch.io 지표
 방문자 수 :&nbsp; 348
 플레이 수/ 다운로드 수 : 115/21" contenteditable="false">내 역할:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 팀장 | 이미지 리소스 제작, 보스 패턴 기획, 스킬 기획, 시스템 보조<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;시스템 | 전투 시스템, 버그 픽스<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;애니메이션 | QA총괄, 애니메이션 스프라이트 시트 제작, 이미지 리소스 보조<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PM | 마케팅 팀 팀장, 팀 일정 관리, 데이터 테이블 작성, TC 작성<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 레벨 디자인 | 맵 배치, 마케팅 보조, QA<br>itch.io 지표<br>방문자 수 :&nbsp; 348<br>플레이 수/ 다운로드 수 : 115/21</p>
                 <div class="project-meta"><span data-editor-bound="true" data-markdown="5명" contenteditable="false">5명</span><span data-editor-bound="true" data-markdown="PD" contenteditable="false">PD</span><span data-editor-bound="true" data-markdown="보스 기획" contenteditable="false">보스 기획</span><span data-editor-bound="true" data-markdown="itch.io" contenteditable="false">itch.io</span></div>
+                </div>
+                <div class="project-hero-video" aria-label="심비온 프로젝트 영상. 마우스를 올리면 재생됩니다."><video muted playsinline loop preload="auto" tabindex="-1"><source src="assets/videos/symbion-pv.mp4" type="video/mp4"></video></div>
               <button type="button" class="card-reorder-handle" aria-label="카드 순서 변경" title="누른 채 움직여 순서 변경">↕</button></article>
               <article class="project-card reorderable">
                 <span class="project-number" data-editor-bound="true" data-markdown="03 / (2026.10—12)" contenteditable="false">03 / (2026.10—12)</span>
                 <h3 data-editor-bound="true" data-markdown="기업협약 프로젝트" contenteditable="false">기업협약 프로젝트</h3>
               <button type="button" class="card-reorder-handle" aria-label="카드 순서 변경" title="누른 채 움직여 순서 변경">↕</button></article>
             </div>
-            <div class="project-video-popup" id="symbion-video-popup" aria-hidden="true" hidden><video muted="" playsinline="" loop="" preload="metadata" tabindex="-1"><source src="assets/videos/symbion-pv.mp4" type="video/mp4"></video></div>
           </section>
 
           <section class="card section-card" aria-labelledby="skills-title">
@@ -1314,70 +1320,24 @@ itch.io 지표
       bindFileSlots();
       bindReorderCards();
 
-      const symbionCard = document.querySelector('.project-card--symbion');
-      const symbionPopup = document.querySelector('#symbion-video-popup');
-      const symbionVideo = symbionPopup && symbionPopup.querySelector('video');
+      document.querySelectorAll('.project-hero-video video').forEach((video) => {
+        const videoFrame = video.closest('.project-hero-video');
+        if (!videoFrame) return;
 
-      let lastPointer = null;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.volume = 0;
 
-      // Keep the fixed preview out of the resume layout so its viewport position
-      // is never affected by the card or by the document scroll position.
-      if (symbionPopup && symbionPopup.parentElement !== document.body) {
-        document.body.append(symbionPopup);
-      }
-
-      function placeSymbionPopup(event) {
-        if (!symbionCard || !symbionPopup) return;
-        const card = symbionCard.getBoundingClientRect();
-        const width = symbionPopup.getBoundingClientRect().width;
-        const height = symbionPopup.getBoundingClientRect().height;
-        if (event && Number.isFinite(event.clientX) && Number.isFinite(event.clientY)) {
-          lastPointer = { x: event.clientX, y: event.clientY };
-        }
-        const pointer = lastPointer || { x: card.right, y: card.top + (card.height / 2) };
-        const gap = 16;
-        const left = Math.min(Math.max(12, pointer.x + gap), window.innerWidth - width - 12);
-        const top = Math.min(Math.max(12, pointer.y - (height / 2)), window.innerHeight - height - 12);
-        symbionPopup.style.left = `${left}px`;
-        symbionPopup.style.top = `${top}px`;
-      }
-
-      function showSymbionPopup(event) {
-        if (!symbionPopup || !symbionVideo) return;
-        symbionPopup.hidden = false;
-        symbionPopup.setAttribute('aria-hidden', 'false');
-        placeSymbionPopup(event);
-        symbionVideo.muted = true;
-        symbionVideo.defaultMuted = true;
-        symbionVideo.volume = 0;
-        symbionVideo.currentTime = 0;
-        const playback = symbionVideo.play();
-        if (playback && typeof playback.catch === 'function') playback.catch(() => {});
-      }
-
-      function hideSymbionPopup() {
-        if (!symbionPopup || !symbionVideo) return;
-        symbionVideo.pause();
-        symbionVideo.currentTime = 0;
-        symbionPopup.hidden = true;
-        symbionPopup.setAttribute('aria-hidden', 'true');
-        lastPointer = null;
-      }
-
-      if (symbionCard && symbionPopup && symbionVideo) {
-        const supportsPointerEvents = 'PointerEvent' in window;
-        symbionCard.addEventListener(supportsPointerEvents ? 'pointerenter' : 'mouseenter', showSymbionPopup);
-        symbionCard.addEventListener(supportsPointerEvents ? 'pointermove' : 'mousemove', placeSymbionPopup);
-        symbionCard.addEventListener(supportsPointerEvents ? 'pointerleave' : 'mouseleave', hideSymbionPopup);
-        symbionCard.addEventListener('focusin', showSymbionPopup);
-        symbionCard.addEventListener('focusout', () => {
-          window.setTimeout(() => {
-            if (!symbionCard.contains(document.activeElement)) hideSymbionPopup();
-          }, 0);
+        videoFrame.addEventListener('pointerenter', () => {
+          const playback = video.play();
+          if (playback && typeof playback.catch === 'function') playback.catch(() => {});
         });
-        window.addEventListener('resize', placeSymbionPopup);
-        window.addEventListener('scroll', () => placeSymbionPopup(), { passive: true });
-      }
+
+        videoFrame.addEventListener('pointerleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
       setEditMode(false);
     }());
   </script>
