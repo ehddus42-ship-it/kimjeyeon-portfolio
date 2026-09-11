@@ -1358,12 +1358,14 @@ itch.io 지표
 
       const terraria = steamGameExperience.find(([appId]) => appId === '105600');
       if (terraria) terraria[2] = '123.4';
-      steamGameExperience.sort((a, b) => Number(b[2].replace(/,/g, '')) - Number(a[2].replace(/,/g, '')));
+      const excludedSteamAppIds = new Set(['2436940', '4508340', '5075020', '3101040', '2584990', '2273420']);
+      const visibleSteamGameExperience = steamGameExperience.filter(([appId]) => !excludedSteamAppIds.has(appId));
+      visibleSteamGameExperience.sort((a, b) => Number(b[2].replace(/,/g, '')) - Number(a[2].replace(/,/g, '')));
 
       const gameList = document.querySelector('#game-list');
       if (gameList) {
         const gameCards = document.createDocumentFragment();
-        steamGameExperience.forEach((game) => gameCards.append(makeSteamGameCard(game)));
+        visibleSteamGameExperience.forEach((game) => gameCards.append(makeSteamGameCard(game)));
         gameList.replaceChildren(gameCards);
       }
       bindImageSlots();
