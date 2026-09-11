@@ -1364,38 +1364,43 @@ itch.io 지표
         return card;
       }
 
-      function makeStarCitizenCard() {
+      const customGameEntries = [
+        { name: 'Star Citizen', period: '2021.05~2026.01', imageUrl: 'https://dto9r5vaiz7bu.cloudfront.net/49piebp1x6b6n/source.jpg' },
+        { name: '리버스: 1999', period: '2023.10~2024.09', imageUrl: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3092660/header.jpg' }
+      ];
+
+      function makeCustomGameCard({ name, period, imageUrl }) {
         const card = document.createElement('article');
         card.className = 'game-card reorderable custom-game-card';
 
         const imageSlot = document.createElement('div');
         imageSlot.className = 'game-image';
-        imageSlot.setAttribute('aria-label', 'Star Citizen 대표 이미지');
+        imageSlot.setAttribute('aria-label', `${name} 대표 이미지`);
         const image = document.createElement('img');
-        image.src = 'https://dto9r5vaiz7bu.cloudfront.net/49piebp1x6b6n/source.jpg';
+        image.src = imageUrl;
         image.alt = '';
         image.loading = 'lazy';
         const imageName = document.createElement('span');
-        imageName.textContent = 'Star Citizen';
+        imageName.textContent = name;
         imageSlot.append(image, imageName);
 
         const body = document.createElement('div');
         body.className = 'game-body';
         const title = document.createElement('h3');
-        title.textContent = 'Star Citizen';
+        title.textContent = name;
         const details = document.createElement('p');
         details.className = 'game-details';
         const record = document.createElement('span');
         const label = document.createElement('b');
         label.textContent = '플레이 기간';
-        record.append(label, ' 2021.05~2026.01');
+        record.append(label, ` ${period}`);
         details.append(record);
         body.append(title, details);
         card.append(imageSlot, body);
         return card;
       }
 
-      function updateStarCitizenCard(card) {
+      function updateCustomGameCard(card, { name, period, imageUrl }) {
         const imageSlot = card.querySelector('.game-image');
         let image = imageSlot.querySelector('img');
         if (!image) {
@@ -1404,14 +1409,14 @@ itch.io 지표
           image.loading = 'lazy';
           imageSlot.prepend(image);
         }
-        image.src = 'https://dto9r5vaiz7bu.cloudfront.net/49piebp1x6b6n/source.jpg';
-        imageSlot.querySelector('span').textContent = 'Star Citizen';
-        card.querySelector('.game-body h3').textContent = 'Star Citizen';
+        image.src = imageUrl;
+        imageSlot.querySelector('span').textContent = name;
+        card.querySelector('.game-body h3').textContent = name;
         const record = card.querySelector('.game-details > span');
         record.replaceChildren();
         const label = document.createElement('b');
         label.textContent = '플레이 기간';
-        record.append(label, ' 2021.05~2026.01');
+        record.append(label, ` ${period}`);
       }
 
       const terraria = steamGameExperience.find(([appId]) => appId === '105600');
@@ -1427,11 +1432,11 @@ itch.io 지표
         visibleSteamGameExperience.forEach((game) => gameCards.append(makeSteamGameCard(game)));
         gameList.replaceChildren(gameCards);
       }
-      if (gameList) {
-        const starCitizenCard = Array.from(gameList.querySelectorAll('.game-card')).find((card) => card.querySelector('.game-body h3')?.textContent.trim() === 'Star Citizen');
-        if (starCitizenCard) updateStarCitizenCard(starCitizenCard);
-        else gameList.append(makeStarCitizenCard());
-      }
+      if (gameList) customGameEntries.forEach((game) => {
+        const savedCard = Array.from(gameList.querySelectorAll('.game-card')).find((card) => card.querySelector('.game-body h3')?.textContent.trim() === game.name);
+        if (savedCard) updateCustomGameCard(savedCard, game);
+        else gameList.append(makeCustomGameCard(game));
+      });
       bindImageSlots();
       bindFileSlots();
       bindReorderCards();
