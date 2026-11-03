@@ -1,11 +1,4 @@
 (() => {
-  const dialog = document.querySelector('#reel-dialog');
-  const reel = dialog?.querySelector('video');
-  document.querySelector('#open-reel')?.addEventListener('click', () => { dialog.showModal(); reel.play().catch(() => {}); });
-  document.querySelector('#close-reel')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('close', () => { reel.pause(); });
-  dialog?.addEventListener('click', (event) => { if (event.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close(); } });
-
   const gameList = document.querySelector('#game-list');
   if (gameList) {
     let controls = document.querySelector('.library-controls');
@@ -55,5 +48,4 @@
   });
   document.querySelectorAll('#portfolio-grid .case-link[href^="https:"]').forEach(link => { link.target = '_blank'; link.rel = 'noopener noreferrer'; });
   document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => { img.classList.add('image-unavailable'); }));
-  document.addEventListener('portfolio:view-change', () => { if (dialog.open) dialog.close(); });
 })();
