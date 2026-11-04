@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="editorial.css?v=20261031-cover-v3">
+  <link rel="stylesheet" href="editorial.css?v=20261104-sync">
 </head>
 <body class="is-cover-page">
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -254,6 +254,20 @@ itch.io 지표
     <p data-editor-bound="true" data-markdown="헌터마다 다른 전투 스타일과 증강 선택으로 빌드를 구성하는 3D 액션 로그라이트. 적의 패턴을 읽고 공격과 대시로 대응하는 전투가 중심입니다." contenteditable="false">헌터마다 다른 전투 스타일과 증강 선택으로 빌드를 구성하는 3D 액션 로그라이트. 적의 패턴을 읽고 공격과 대시로 대응하는 전투가 중심입니다.</p>
     <p data-editor-bound="true" data-markdown="Figma 기획서에는 캐릭터 제작 규격, AI 리소스 제작 과정, 증강 UI와 던전·몬스터·오브젝트 구성을 정리했습니다. AI 도구를 활용해 기획을 플레이 가능한 데모로 구현하고, itch.io에서 전투·조작·연출에 대한 피드백을 수집하고 있습니다." contenteditable="false">Figma 기획서에는 캐릭터 제작 규격, AI 리소스 제작 과정, 증강 UI와 던전·몬스터·오브젝트 구성을 정리했습니다. AI 도구를 활용해 기획을 플레이 가능한 데모로 구현하고, itch.io에서 전투·조작·연출에 대한 피드백을 수집하고 있습니다.</p>
     <div class="project-meta"><span>콘텐츠 기획</span><span>AI 활용 제작</span><span>프로토타입 검증</span></div>
+    <details class="zerogate-development"><summary>레벨 디자인 · 구현 · CBT 기록</summary>
+<p data-editor-bound="true" data-markdown="내 역할: 콘텐츠 기획 | 레벨 디자인 문서, 메인 퀘스트·스토리, 튜토리얼 설계
+ 데이터 | 던전·몹·캐릭터·증강·튜토리얼 데이터 테이블 작성
+ 구현 | Claude Code를 활용해 기획 의도를 Unity에 직접 반영
+ 전투·밸런스 | 헌터 밸런스 패스, 보스 난이도 조정
+ QA | CBT 세션별 KPI 로그 설계·집계, 버그 리포트 수정" contenteditable="false">내 역할: 콘텐츠 기획 | 레벨 디자인 문서, 메인 퀘스트·스토리, 튜토리얼 설계<br> 데이터 | 던전·몹·캐릭터·증강·튜토리얼 데이터 테이블 작성<br> 구현 | Claude Code를 활용해 기획 의도를 Unity에 직접 반영<br> 전투·밸런스 | 헌터 밸런스 패스, 보스 난이도 조정<br> QA | CBT 세션별 KPI 로그 설계·집계, 버그 리포트 수정</p>
+<div class="feature-stats"><div><strong>3</strong><p>메인 퀘스트<br>테마 게이트</p></div><div><strong>12</strong><p>메인 퀘스트<br>단계 설계</p></div><div><strong>163</strong><p>직접 반영한 커밋<br><small>Claude Code 협업</small></p></div></div>
+          <div class="gate-grid" id="zerogate-gates" aria-label="제로게이트 메인 퀘스트 게이트">
+            <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-snowfield.gif" alt="얼어붙은 설원 게이트: 눈사람 기사와 얼음 정령을 지나 눈의 왕과 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 01</span><h3>얼어붙은 설원</h3><p><strong>길 자체가 도전.</strong> 눈덩이 포대 협곡, 고드름 낙하, 거대 눈덩이 추격까지 7구간을 이어 빙하 횡단의 긴장을 설계했습니다.</p></article>
+            <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-arcade.gif" alt="끝없는 오락실 게이트: 지뢰찾기 바닥 위에서 복셀 몬스터와 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 02</span><h3>끝없는 오락실</h3><p><strong>아는 게임 속을 걷는 재미.</strong> 바닥만 봐도 어떤 게임인지 알 수 있도록 지뢰찾기·블록·아케이드 규칙을 공간으로 옮겼습니다.</p></article>
+            <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-factory.gif" alt="멈추지 않는 라인 게이트: 생산 컨베이어를 부수고 벨트 펭귄과 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 03</span><h3>멈추지 않는 라인</h3><p><strong>배경이 아니라 적으로.</strong> 장식으로 읽히던 생산 컨베이어가 반격하게 바꿔, 플레이어가 부숴야 할 대상으로 인식하도록 개선했습니다.</p></article>
+          </div>
+          <div class="process-strip" aria-label="작업 방식"><span class="section-index">HOW I WORKED</span><ol><li><b>01</b>기획 문서<small>레벨 · 퀘스트 · 데이터 테이블</small></li><li><b>02</b>직접 구현<small>Claude Code로 Unity 반영</small></li><li><b>03</b>플레이 검증<small>CBT 세션별 KPI 로그</small></li><li><b>04</b>개선<small>버그 리포트 · 밸런스 패스</small></li></ol></div>
+    </details>
     <details class="team-roles"><summary>팀 구성과 역할 · 5명</summary><div class="team-table-wrap"><table><caption>발표자료_3의 기존 역할과 추가 캐릭터 담당</caption><thead><tr><th scope="col">팀원</th><th scope="col">담당 역할</th><th scope="col">캐릭터</th></tr></thead><tbody><tr class="my-role"><th scope="row">김제연</th><td>팀장 · PD · 전투·강화 시스템</td><td>문루나</td></tr><tr><th scope="row">김영웅</th><td>PM · 사업</td><td>연하늘</td></tr><tr><th scope="row">김제원</th><td>개발 · 리소스 보조</td><td>서금비</td></tr><tr><th scope="row">이유진</th><td>리소스</td><td>홍련화</td></tr><tr><th scope="row">윤희성</th><td>개발 · 리소스 보조</td><td>백화린</td></tr></tbody></table></div></details>
     <div class="project-links"><a class="case-link" href="https://silsilkyw.itch.io/zerogate" target="_blank" rel="noopener noreferrer">데모 플레이</a><a class="case-link" href="https://www.figma.com/design/4WRuwkklDt0IvMblKaS92K/?node-id=0-1" target="_blank" rel="noopener noreferrer">Figma 기획서</a></div>
   </div>
@@ -276,7 +290,7 @@ itch.io 지표
           <h1>수정 기록</h1>
           <p>날짜별 변경 기록.</p>
         </header>
-        <div class="update-timeline" aria-label="업데이트 기록"><article class="update-entry update-entry--current"><time class="update-date" datetime="2026-10-30">2026.10.30</time><div><h2>게임 기획 노트로 새롭게 구성</h2><ul><li>프로젝트와 문제 해결 과정을 중심으로 첫 화면 재구성.</li><li>아이보리와 주홍색을 활용한 디자인 및 모바일 화면 개선.</li><li>게임 목록 검색, 영상 보기, 페이지 이동 및 문서 열람 개선.</li></ul></div></article>
+        <div class="update-timeline" aria-label="업데이트 기록"><article class="update-entry update-entry--current"><time class="update-date" datetime="2026-11-04">2026.11.04</time><div><h2>최신 표지와 프로젝트 기록 통합</h2><ul><li>개인 소개 표지와 정리된 메뉴, 게임 플레이 영상 반영.</li><li>제로게이트를 대표 프로젝트로 소개하고, 게이트 플레이 클립과 CBT 기록을 상세 내용에 통합.</li></ul></div></article><article class="update-entry update-entry--current"><time class="update-date" datetime="2026-11-03">2026.11.03</time><div><h2>기업협약 프로젝트 중심으로 재구성</h2><ul><li>표지와 대표 프로젝트를 제로게이트: 헌터즈(Team Pirate Alliance)로 교체.</li><li>메인 퀘스트 게이트 3종 플레이 클립과 작업 방식(기획 → 구현 → 검증 → 개선) 추가.</li><li>심비온 · 까미스트리밍은 기타 프로젝트로 정리.</li><li>이력서 프로젝트 경험과 포트폴리오 카드에 기업협약 프로젝트 내용 추가.</li></ul></div></article><article class="update-entry"><time class="update-date" datetime="2026-10-30">2026.10.30</time><div><h2>게임 기획 노트로 새롭게 구성</h2><ul><li>프로젝트와 문제 해결 과정을 중심으로 첫 화면 재구성.</li><li>아이보리와 주홍색을 활용한 디자인 및 모바일 화면 개선.</li><li>게임 목록 검색, 영상 보기, 페이지 이동 및 문서 열람 개선.</li></ul></div></article>
           <article class="update-entry update-entry--current">
             <time class="update-date" datetime="2026-09-11">2026.09.11</time>
             <div>
@@ -359,8 +373,8 @@ itch.io 지표
   <input class="image-upload-input" id="file-upload-input" type="file">
   <div class="sr-only" id="edit-status" aria-live="polite"></div>
 
-  <script src="script.js?v=20261031-cover-v3"></script>
-  <script src="experience.js?v=20261031-cover-v3"></script>
+  <script src="script.js?v=20261104-sync"></script>
+  <script src="experience.js?v=20261104-sync"></script>
 
 
 

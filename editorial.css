@@ -550,3 +550,63 @@ body.is-editing .footer .edit-controls { position: fixed; right: 20px; bottom: 2
   .landing-hero h1 { font-size: 48px; margin: 18px 0 22px; }
   .hero-art.confidence-portrait { width: min(85%, 250px); justify-self: center; }
 }
+
+/* Featured company project: ZeroGate gates, stats and process. */
+a.video-trigger { text-decoration: none; }
+.feature-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 25px; border-top: 1px solid var(--pearl); }
+.feature-stats > div { padding: 17px 0 4px; }
+.feature-stats > div + div { padding-left: 16px; border-left: 1px solid var(--pearl); }
+.feature-stats strong { display: block; font: 500 40px/1 var(--mono); letter-spacing: -.08em; color: var(--accent); margin-bottom: 9px; }
+.feature-stats p { margin: 0; font-size: 11px; line-height: 1.7; }
+.feature-stats small { font-size: 9px; color: var(--slate); }
+.gate-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 24px; scroll-margin-top: 30px; }
+.gate-card { border: 1px solid var(--pearl); background: var(--paper); padding: 12px 12px 22px; }
+.gate-media { aspect-ratio: 16/9; overflow: hidden; background: #121b1a; }
+.gate-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.gate-index { display: block; margin: 18px 8px 0; font: 10px var(--mono); color: var(--accent); letter-spacing: .06em; }
+.gate-card h3 { margin: 8px 8px 10px; font-size: 19px; letter-spacing: -.035em; }
+.gate-card p { margin: 0 8px; font-size: 12px; line-height: 1.85; color: var(--slate); }
+.gate-card p strong { color: var(--ink); font-weight: 650; }
+.process-strip { display: flex; align-items: center; gap: 30px; margin-top: 24px; padding: 22px 29px; background: #e9eadf; }
+.process-strip .section-index { margin: 0; white-space: nowrap; }
+.process-strip ol { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); flex: 1; margin: 0; padding: 0; list-style: none; }
+.process-strip li { position: relative; font-size: 14px; font-weight: 650; padding-right: 20px; }
+.process-strip li + li { padding-left: 20px; }
+.process-strip li + li::before { content: '→'; position: absolute; left: -6px; top: 14px; color: var(--accent); font-weight: 400; }
+.process-strip b { display: block; font: 10px var(--mono); color: var(--accent); margin-bottom: 6px; }
+.process-strip small { display: block; margin-top: 4px; font-size: 10px; font-weight: 400; color: var(--slate); }
+.other-work-label { margin: 56px 0 0; }
+
+.project-card-media { margin-top: 18px; aspect-ratio: 16/9; overflow: hidden; border-radius: 2px; background: #121b1a; }
+.project-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1100px) {
+  .feature-stats strong { font-size: 34px; }
+  .gate-grid { gap: 16px; }
+  .process-strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .process-strip ol { width: 100%; }
+}
+@media (max-width: 860px) {
+
+  .gate-grid { grid-template-columns: 1fr 1fr; }
+  .gate-card:last-child { grid-column: 1 / -1; }
+  .feature-stats strong { font-size: 28px; }
+}
+@media (max-width: 640px) {
+  .gate-grid { grid-template-columns: 1fr; gap: 15px; }
+  .feature-stats strong { font-size: 32px; }
+  .feature-stats > div + div { padding-left: 12px; }
+  .process-strip { padding: 21px 18px; }
+  .process-strip ol { grid-template-columns: 1fr 1fr; gap: 16px 0; }
+  .process-strip li:nth-child(3) { padding-left: 0; }
+  .process-strip li:nth-child(3)::before { display: none; }
+  .other-work-label { margin-top: 42px; }
+}
+
+.zerogate-development { margin: 24px 0; border-top: 1px solid var(--pearl); padding-top: 18px; }
+.zerogate-development > summary { cursor: pointer; font-weight: 650; }
+#zerogate-project .zerogate-development .gate-grid { grid-template-columns: 1fr; }
+#zerogate-project .zerogate-development .gate-card { grid-column: auto; }
+#zerogate-project .zerogate-development .process-strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+#zerogate-project .zerogate-development .process-strip ol { width: 100%; grid-template-columns: 1fr 1fr; gap: 16px 0; }
+#zerogate-project .zerogate-development .process-strip li:nth-child(3) { padding-left: 0; }
+#zerogate-project .zerogate-development .process-strip li:nth-child(3)::before { display: none; }
