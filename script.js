@@ -535,7 +535,7 @@
         if (documentViewerFrame) documentViewerFrame.src = source;
         if (documentViewerName) documentViewerName.textContent = name || '첨부 문서';
         if (documentViewerDirect) documentViewerDirect.href = source;
-        if (pageMenu) pageMenu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('main-content')?.scrollIntoView({ block: 'start' });
       }
 
       function showCover(shouldScroll = true, updateHash = true) {
@@ -588,7 +588,8 @@
         link.addEventListener('click', (event) => {
           event.preventDefault();
           activate(link.dataset.pageTarget);
-          if (pageMenu) pageMenu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const destination = document.getElementById(link.dataset.sectionTarget || 'main-content');
+          destination?.scrollIntoView({ block: 'start' });
         });
       });
 
@@ -750,23 +751,5 @@
       bindFileSlots();
       bindReorderCards();
 
-      document.querySelectorAll('.project-hero-video video').forEach((video) => {
-        const videoFrame = video.closest('.project-hero-video');
-        if (!videoFrame) return;
-
-        video.muted = true;
-        video.defaultMuted = true;
-        video.volume = 0;
-
-        videoFrame.addEventListener('pointerenter', () => {
-          const playback = video.play();
-          if (playback && typeof playback.catch === 'function') playback.catch(() => {});
-        });
-
-        videoFrame.addEventListener('pointerleave', () => {
-          video.pause();
-          video.currentTime = 0;
-        });
-      });
       setEditMode(false);
     }());

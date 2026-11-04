@@ -1,10 +1,15 @@
 (() => {
-  const dialog = document.querySelector('#reel-dialog');
-  const reel = dialog?.querySelector('video');
-  document.querySelector('#open-reel')?.addEventListener('click', () => { dialog.showModal(); reel.play().catch(() => {}); });
-  document.querySelector('#close-reel')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('close', () => { reel.pause(); });
-  dialog?.addEventListener('click', (event) => { if (event.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close(); } });
+  const videos = [...document.querySelectorAll('video')];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(({ target, isIntersecting }) => { if (!isIntersecting) target.pause(); });
+  });
+  videos.forEach(video => {
+    observer.observe(video);
+    video.addEventListener('play', () => videos.forEach(other => { if (other !== video) other.pause(); }));
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) videos.forEach(video => video.pause());
+  });
 
   const gameList = document.querySelector('#game-list');
   if (gameList) {
@@ -50,10 +55,9 @@
   updateDrafts();
   document.querySelectorAll('#portfolio-grid .case-link[href="#"]').forEach(link => {
     const title = link.closest('.case-card').querySelector('h2')?.textContent || '';
-    if (title.includes('까미')) { link.href = '#resume'; link.textContent = '프로젝트 경험 보기 ↗'; link.dataset.markdown = link.textContent; }
-    if (title.includes('AI 데이터')) { link.href = '#resume'; link.textContent = '활용 기술과 이력 보기 ↗'; link.dataset.markdown = link.textContent; }
+    if (title.includes('까미')) { link.href = '#resume'; link.textContent = '프로젝트 경험 보기'; link.dataset.markdown = link.textContent; }
+    if (title.includes('AI 데이터')) { link.href = '#resume'; link.textContent = '활용 기술과 이력 보기'; link.dataset.markdown = link.textContent; }
   });
   document.querySelectorAll('#portfolio-grid .case-link[href^="https:"]').forEach(link => { link.target = '_blank'; link.rel = 'noopener noreferrer'; });
   document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => { img.classList.add('image-unavailable'); }));
-  document.addEventListener('portfolio:view-change', () => { if (dialog.open) dialog.close(); });
 })();

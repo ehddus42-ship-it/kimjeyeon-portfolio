@@ -101,6 +101,45 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .next-project { padding: 26px 30px; background: #e9eadf; position: relative; }
 .next-project h3 { margin: 15px 0 12px; font-size: 20px; font-weight: 600; line-height: 1.4; }
 .next-project p { margin: 0; font-size: 10px; color: var(--slate); }
+.next-project .text-button { display: flex; margin-top: 20px; font-size: 11px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.zerogate-thumb { background-color: #dce3ef; }
+.project-print.zero-print img { aspect-ratio: 1.45; object-fit: contain; background: #dce3ef; }
+#zerogate-feature .feature-visual { background: #152130; }
+#zerogate-feature .feature-visual > img { object-fit: contain; }
+#zerogate-feature .video-trigger { text-decoration: none; }
+#zerogate-feature .feature-result > strong { font-size: 34px; }
+.secondary-video { margin-top: 18px; font-size: 11px; }
+.kammi-gameplay { min-width: 0; overflow: hidden; background: #11151d; }
+.kammi-gameplay video { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 716; object-fit: contain; }
+.next-project .kammi-gameplay, #kammi-experience .kammi-gameplay { margin-top: 18px; }
+#kammi-project { display: grid; grid-template-columns: minmax(240px, 1.2fr) minmax(0, 1fr); aspect-ratio: auto; }
+#kammi-project .kammi-gameplay { display: grid; align-items: center; }
+#kammi-project .case-copy { height: auto; }
+#kammi-project .case-copy > p { text-indent: 0; }
+@media (max-width: 760px) {
+  #kammi-project { grid-template-columns: 1fr; }
+}
+.personal-contribution { color: var(--ink) !important; font-weight: 650; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--linen); }
+.team-roles { margin-top: 4px; border-top: 1px solid var(--pearl); padding-top: 14px; }
+.team-roles summary { cursor: pointer; font-size: 13px; font-weight: 650; }
+.team-table-wrap { overflow-x: auto; }
+.team-roles table { width: 100%; margin-top: 14px; border-collapse: collapse; font-size: 12px; text-align: left; }
+.team-roles caption { padding-bottom: 9px; text-align: left; font-size: 10px; color: var(--slate); }
+.team-roles th, .team-roles td { padding: 10px 8px; border-bottom: 1px solid var(--pearl); line-height: 1.6; }
+.team-roles th:first-child, .team-roles td:last-child { white-space: nowrap; }
+.team-roles .my-role { background: var(--linen); color: var(--accent); }
+#zerogate-project { display: grid; aspect-ratio: auto; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); }
+#zerogate-project .case-thumb { aspect-ratio: auto; min-height: 250px; }
+#zerogate-project .case-copy { height: auto; gap: 14px; }
+#zerogate-project .case-copy h2 { margin-bottom: 0; }
+#zerogate-project .case-copy > p { text-indent: 0; }
+#zerogate-project .project-meta { margin: 0; padding-top: 0; }
+#zerogate-project .case-link { margin-top: 0; }
+@media (max-width: 760px) {
+  #zerogate-project { grid-template-columns: 1fr; }
+  #zerogate-project .case-thumb { min-height: 0; aspect-ratio: 960 / 376; }
+}
 .next-mark { position: absolute; right: 24px; top: 28px; font-size: 29px; color: #828879; }
 .thinking-section { display: grid; grid-template-columns: 1fr 1.25fr; gap: 70px; padding: 90px 0 75px; margin-top: 75px; border-top: 1px solid var(--pearl); }
 .thinking-intro .text-button { margin-top: 26px; }
@@ -394,3 +433,120 @@ body.is-editing .hero-art { pointer-events: none; }
   .reel-header { padding: 12px 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .project-print, .hero-art:hover .project-print { transform: rotate(-3deg); } .feature-visual:hover > img { transform: none; } }
+
+/* Reading flow: one navigation, one primary project, consistent secondary cards. */
+.topbar { min-height: 88px; }
+.primary-nav { margin-right: 0; }
+.primary-nav button { min-height: 44px; font-size: 13px; }
+.button-primary { text-decoration: none; }
+.landing-hero { min-height: 0; padding: 64px 0 56px; grid-template-columns: 1.2fr 1fr; gap: 48px; }
+.landing-hero h1 { font-size: clamp(42px, 4.8vw, 64px); margin: 20px 0; }
+.hero-eyebrow { margin: 0; font-size: 13px; color: var(--slate); }
+.hero-description { font-size: 14px; }
+.hero-actions { margin: 26px 0 0; }
+.hero-art { width: 100%; padding: 0; margin: 0; }
+.hero-art > img { display: block; width: 100%; height: auto; }
+.hero-art > p { margin: 16px 0 0; color: var(--slate); font: 10px var(--mono); text-align: center; }
+.work-section { padding-top: 36px; border-top: 1px solid var(--pearl); }
+.editorial-heading { margin-bottom: 24px; }
+.editorial-heading h2 { font-size: 30px; }
+.section-index { margin-bottom: 10px; }
+.featured-project { grid-template-columns: 1.15fr 1fr; }
+.feature-visual { min-height: 360px; }
+.feature-copy { display: flex; flex-direction: column; align-items: flex-start; padding: 32px; }
+.feature-copy h3 { margin: 20px 0 16px; font-size: 32px; }
+.feature-summary { font-size: 22px; line-height: 1.55; margin-bottom: 16px; }
+.feature-detail { font-size: 13px; line-height: 1.85; }
+.project-role { color: var(--slate); font-size: 11px; line-height: 1.7; margin: 20px 0; }
+.feature-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: auto; padding-top: 12px; }
+.feature-actions .button-primary { font-size: 12px; gap: 20px; padding: 12px 16px; }
+.secondary-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+.secondary-project-card { display: flex; flex-direction: column; min-width: 0; padding: 26px; border: 1px solid var(--pearl); background: var(--paper); }
+.secondary-project-card h3 { margin: 16px 0 12px; font-size: 23px; line-height: 1.35; }
+.secondary-project-card > p { margin: 0; color: var(--slate); font-size: 13px; line-height: 1.85; }
+.secondary-project-card > .project-role { margin: 14px 0 20px; font-size: 11px; }
+.secondary-project-card .project-gameplay { margin-top: auto; }
+.project-gameplay { min-width: 0; overflow: hidden; background: #11151d; }
+.project-gameplay video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+.secondary-project-actions { padding-top: 12px; }
+.secondary-project-actions .text-button { width: 100%; justify-content: space-between; min-height: 44px; font-size: 12px; }
+.intro-summary { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 48px 0; margin-top: 48px; border-top: 1px solid var(--pearl); }
+.intro-summary h2 { margin: 0 0 12px; font-size: 25px; line-height: 1.5; }
+.intro-summary p:not(.section-index) { margin: 0; font-size: 13px; color: var(--slate); line-height: 1.85; }
+.intro-summary .text-button { flex-shrink: 0; }
+.view { padding-top: 40px; }
+.view .case-card, #zerogate-project, #kammi-project { display: grid; aspect-ratio: auto; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); scroll-margin-top: 28px; box-shadow: none; }
+.case-card .case-copy { height: auto; gap: 14px; padding: 30px; }
+.case-card .case-copy h2 { margin: 0; font-size: 24px; line-height: 1.45; }
+.case-card .case-thumb { min-height: 240px; height: 100%; aspect-ratio: auto; }
+.case-thumb::after { display: none; }
+.case-card .case-link { margin-top: 4px; }
+.case-card .case-copy > p::first-line { font-size: inherit; line-height: inherit; }
+.project-hero-video::after { display: none; }
+.project-card { scroll-margin-top: 28px; }
+.cover-grid { grid-template-columns: 1fr; }
+.cover-copy { max-width: 700px; }
+.footer { display: flex; padding: 28px 0 20px; gap: 24px; align-items: center; }
+.footer-contact, .footer-tools { display: flex; align-items: center; gap: 24px; }
+.footer-contact > a:last-child { font-size: 12px; letter-spacing: 0; }
+.footer-tools { margin-left: auto; gap: 18px; }
+.footer-tools .text-button, .footer-tools .edit-toggle { font-size: 11px; color: var(--slate); }
+.footer .edit-controls { position: static; width: auto; margin: 0; }
+body.is-editing .footer .edit-controls { position: fixed; right: 20px; bottom: 20px; z-index: 90; padding: 10px; background: var(--paper); border: 1px solid var(--pearl); }
+@media (max-width: 860px) {
+  .landing-hero { gap: 24px; padding: 44px 0; }
+  .landing-hero h1 { font-size: 46px; }
+  .feature-copy { padding: 24px; }
+  .feature-visual { min-height: 320px; }
+  .feature-summary { font-size: 19px; }
+  .secondary-project-card { padding: 22px; }
+  .intro-summary { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .footer, .footer-contact { flex-wrap: wrap; }
+}
+@media (max-width: 640px) {
+  .topbar { padding-top: 18px; min-height: 108px; }
+  .primary-nav { margin-top: 12px; }
+  .primary-nav button { font-size: 13px; }
+  .landing-hero { grid-template-columns: 1fr; gap: 28px; padding: 36px 0; }
+  .landing-hero h1 { font-size: 44px; }
+  .hero-art { max-width: 300px; margin: 0 auto; }
+  .hero-art > p { display: none; }
+  .hero-description { font-size: 13px; }
+  .featured-project { grid-template-columns: 1fr; }
+  .feature-visual { min-height: 0; aspect-ratio: 16/9; }
+  .feature-copy { padding: 24px; }
+  .feature-actions { width: 100%; }
+  .secondary-projects { grid-template-columns: 1fr; gap: 20px; }
+  .intro-summary { padding: 32px 0; margin-top: 32px; }
+  .intro-summary h2 { font-size: 22px; }
+  .view .case-card, #zerogate-project, #kammi-project { grid-template-columns: 1fr; }
+  .case-card .case-thumb { min-height: 0; height: auto; aspect-ratio: 16/9; }
+  .case-card .case-copy { padding: 24px; }
+  .view { padding-top: 28px; }
+  .footer { align-items: flex-start; flex-direction: column; }
+  .footer-tools { margin-left: 0; }
+  .footer-contact { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .footer .edit-controls { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+.topbar { position: sticky; top: 0; z-index: 50; background: var(--linen); }
+#main-content, #selected-work, .view .case-card, .project-card { scroll-margin-top: 112px; }
+@media (max-width: 640px) {
+  #main-content, #selected-work, .view .case-card, .project-card { scroll-margin-top: 128px; }
+}
+
+@media (min-width: 861px) { .profile-panel { top: 112px; } }
+
+/* Personal cover: one headline paired with the folded-arms portrait. */
+.landing-hero { grid-template-columns: 1.15fr 1fr; align-items: center; padding: 44px 0; }
+.landing-hero h1 { font-size: clamp(48px, 5.6vw, 76px); line-height: 1.15; margin: 22px 0 26px; }
+.hero-art.confidence-portrait { width: min(100%, 360px); margin: 0; justify-self: center; padding: 0; }
+.confidence-portrait > img { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .landing-hero { grid-template-columns: 1fr; gap: 26px; padding: 32px 0 0; }
+  .landing-hero h1 { font-size: 48px; margin: 18px 0 22px; }
+  .hero-art.confidence-portrait { width: min(85%, 250px); justify-self: center; }
+}
