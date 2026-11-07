@@ -419,7 +419,7 @@ body.is-editing .hero-art { pointer-events: none; }
   .game-search { width: 100%; }
   #game-count { font-size: 9px; }
   .cover-step, .cover-step:nth-child(1), .cover-step:nth-child(3), .cover-step:nth-child(4) { grid-template-columns: 1fr; padding: 26px 0; gap: 24px; }
-  .essay-heading { display: flex; gap: 19px; align-items: baseline; }
+  .essay-heading { display: flex; flex-direction: column; gap: 10px; align-items: baseline; }
   .essay-heading h2 { font-size: 21px; margin: 0; }
   .cover-copy p { font-size: 13px; line-height: 1.9; }
   .page-title { font-size: 33px; }
