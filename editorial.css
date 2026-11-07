@@ -610,3 +610,27 @@ a.video-trigger { text-decoration: none; }
 #zerogate-project .zerogate-development .process-strip ol { width: 100%; grid-template-columns: 1fr 1fr; gap: 16px 0; }
 #zerogate-project .zerogate-development .process-strip li:nth-child(3) { padding-left: 0; }
 #zerogate-project .zerogate-development .process-strip li:nth-child(3)::before { display: none; }
+
+/* Make each claim lead directly to the work and the decision behind it. */
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; }
+.trust-shortcuts { display: grid; gap: 0; margin-top: 26px; max-width: 470px; border-top: 1px solid var(--pearl); }
+.trust-shortcuts button { display: grid; grid-template-columns: 76px minmax(0, 1fr) 16px; align-items: center; gap: 10px; padding: 13px 0; border: 0; border-bottom: 1px solid var(--pearl); background: transparent; color: var(--ink); font: inherit; font-size: 12px; line-height: 1.6; text-align: left; cursor: pointer; }
+.trust-shortcuts button > span:first-child { color: var(--slate); font-size: 11px; }
+.trust-shortcuts button > span:last-child { color: var(--accent); }
+.trust-shortcuts button:hover { color: var(--accent); }
+.trust-shortcuts button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.cover-lede { max-width: 700px; color: var(--slate); font-size: 14px; line-height: 1.8; }
+.decision-story { border-top: 1px solid var(--pearl); padding-top: 20px; }
+.case-copy .decision-story h3 { margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: var(--ink); }
+.decision-story dl { display: grid; gap: 18px; margin: 0; }
+.decision-story dl > div { display: grid; gap: 6px; }
+.decision-story dt { color: var(--accent); font-size: 12px; font-weight: 700; }
+.decision-story dd { margin: 0; color: var(--slate); font-size: 13px; line-height: 1.85; overflow-wrap: anywhere; }
+.case-card:has(.decision-story) { align-items: start; }
+.case-card:has(.decision-story) .case-thumb { height: auto; min-height: 240px; aspect-ratio: 4 / 3; }
+@media (max-width: 640px) {
+  .trust-shortcuts { margin-top: 22px; max-width: none; }
+  .trust-shortcuts button { grid-template-columns: 68px minmax(0, 1fr) 16px; gap: 8px; }
+  .hero-art.confidence-portrait { width: min(65%, 180px); }
+  .case-card:has(.decision-story) .case-thumb { min-height: 0; aspect-ratio: 16 / 9; }
+}
