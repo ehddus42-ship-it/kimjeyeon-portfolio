@@ -588,7 +588,13 @@
         link.addEventListener('click', (event) => {
           event.preventDefault();
           activate(link.dataset.pageTarget);
+          if (link.dataset.pageTarget === 'portfolio' && !link.dataset.sectionTarget) {
+            document.getElementById('portfolio-records').open = false;
+          }
           const destination = document.getElementById(link.dataset.sectionTarget || 'main-content');
+          for (let parent = destination?.parentElement; parent; parent = parent.parentElement) {
+            if (parent.tagName === 'DETAILS') parent.open = true;
+          }
           destination?.scrollIntoView({ block: 'start' });
         });
       });

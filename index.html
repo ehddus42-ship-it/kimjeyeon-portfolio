@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="editorial.css?v=20261107-thumb">
+  <link rel="stylesheet" href="editorial.css?v=20261107-entry">
 </head>
 <body class="is-cover-page">
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -17,7 +17,7 @@
 
     <header class="topbar">
       <a class="brand" href="#home" data-cover-home aria-label="김제연 포트폴리오 처음으로"><img class="brand-symbol" src="assets/images/thumbs-up.svg" alt="" aria-hidden="true" width="40" height="44"><span>김제연<span class="brand-caption">게임 콘텐츠 기획자</span></span></a>
-      <nav class="primary-nav" aria-label="주요 메뉴"><button type="button" data-page-target="portfolio">프로젝트</button><button type="button" data-page-target="cover-letter">소개</button><button type="button" data-page-target="resume">이력서</button></nav>
+      <nav class="primary-nav" aria-label="주요 메뉴"><button type="button" data-page-target="cover-letter">자기소개서</button><button type="button" data-page-target="portfolio">포트폴리오</button><button type="button" data-page-target="resume">이력서</button></nav>
 
     </header>
     <div id="main-content" tabindex="-1"></div>
@@ -28,10 +28,9 @@
             <p class="hero-eyebrow">김제연 · 게임 콘텐츠 기획자</p>
             <h1>나만<br><em>믿으십쇼!</em></h1>
             <p class="hero-description"><strong>맡은 기획을 만들고, 팀의 일정과 방향을 맞춥니다.</strong><br>팀장으로 겪은 문제를 어떻게 풀었는지 담았습니다.</p>
-            <div class="hero-actions"><a class="button-primary" href="#selected-work">프로젝트 보기 <span aria-hidden="true">↓</span></a><button class="text-button" type="button" data-page-target="cover-letter">자기소개서 보기 <span aria-hidden="true">→</span></button></div>
-            <nav class="trust-shortcuts" aria-label="주요 경험 바로 보기">
-              <button type="button" data-page-target="portfolio" data-section-target="zerogate-project"><span>소통 · 조율</span>캐릭터 기획 일정과 톤 맞추기 <span aria-hidden="true">↗</span></button>
-              <button type="button" data-page-target="portfolio" data-section-target="symbion-project"><span>기획 · 판단</span>플레이 반응에 맞춰 보스 전투 개선 <span aria-hidden="true">↗</span></button>
+            <nav class="hero-actions document-actions" aria-label="자기소개서와 포트폴리오 바로가기">
+              <button class="document-entry document-entry--cover" type="button" data-page-target="cover-letter"><span class="entry-title">자기소개서 보기</span><span class="entry-description">지원동기 · 직무 경험 · 협업 경험</span><span class="entry-arrow" aria-hidden="true">→</span></button>
+              <button class="document-entry document-entry--portfolio" type="button" data-page-target="portfolio"><span class="entry-title">포트폴리오 보기</span><span class="entry-description">자료 준비 중</span><span class="entry-arrow" aria-hidden="true">→</span></button>
             </nav>
           </div>
           <figure class="hero-art confidence-portrait"><img src="assets/images/kimjeyeon-confidence-v3.png" alt="몸을 살짝 사선으로 돌려 팔짱을 낀 상태에서 엄지만 들어 보이는 김제연의 AI 연출 이미지" fetchpriority="high" width="1085" height="1450"></figure>
@@ -240,9 +239,17 @@ itch.io 지표
     <section class="view" id="portfolio" role="tabpanel" aria-labelledby="tab-portfolio" tabindex="0">
       <div class="portfolio-layout">
         <div>
-          <div class="portfolio-lede"><h1 class="page-title">프로젝트</h1>
-            <p class="eyebrow"><span class="label-dot"></span>제가 맡은 일과 해결한 문제, 그 과정에서 배운 점</p>
+          <div class="portfolio-lede"><h1 class="page-title">포트폴리오</h1>
+            <p class="eyebrow"><span class="label-dot"></span>기획서 · 프로젝트 사례 · 플레이 영상</p>
           </div>
+          <section class="portfolio-empty" aria-labelledby="portfolio-empty-title">
+            <svg class="portfolio-empty-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M14 6h14l10 10v26H10V6h4Zm14 0v12h10M18 26h12M18 33h8" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <span class="preparation-badge">준비 중</span>
+            <h2 id="portfolio-empty-title">포트폴리오 자료를 준비하고 있습니다.</h2>
+            <p>기획서와 프로젝트 자료를 정리해 추가할 예정입니다.</p>
+          </section>
+          <details class="portfolio-records" id="portfolio-records">
+            <summary>기존 프로젝트 기록 보기 <span>ZERO GATE · 심비온 · 까미스트리밍</span></summary>
           <div class="case-stack" id="portfolio-grid">
             <article class="case-card reorderable" id="zerogate-project">
   <div class="case-thumb zerogate-thumb image-uploaded" role="button" aria-label="ZERO GATE 대표 이미지" tabindex="0" style="background-image: url(assets/images/zerogate-banner.png); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
@@ -279,6 +286,7 @@ itch.io 지표
 
   </div>
           <button class="edit-actions" id="add-portfolio" type="button" aria-label="포트폴리오 카드 추가" aria-controls="portfolio-grid">＋ 포트폴리오 추가</button>
+          </details>
         </div>
       </div>
     </section>
@@ -373,7 +381,7 @@ itch.io 지표
   <input class="image-upload-input" id="file-upload-input" type="file">
   <div class="sr-only" id="edit-status" aria-live="polite"></div>
 
-  <script src="script.js?v=20261104-sync"></script>
+  <script src="script.js?v=20261107-entry"></script>
   <script src="experience.js?v=20261104-sync"></script>
 
 
