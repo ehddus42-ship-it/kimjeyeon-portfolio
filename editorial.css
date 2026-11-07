@@ -12,8 +12,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .page-shell { width: min(var(--max-width), calc(100% - 112px)); padding: 0 0 24px; }
 .topbar { min-height: 105px; margin: 0; border-bottom: 1px solid var(--pearl); gap: 24px; }
 .brand { gap: 14px; letter-spacing: -.025em; font-size: 17px; font-weight: 800; }
-.brand-symbol { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 44px; background: var(--ink); color: var(--linen); font: 700 34px Georgia,serif; padding-bottom: 6px; }
-.brand-symbol span { color: #f17c54; }
+.brand-symbol { display: block; flex-shrink: 0; width: 40px; height: 44px; object-fit: contain; }
 .brand-caption { display: block; margin-top: 2px; font-size: 10px; color: var(--slate); font-weight: 500; letter-spacing: .015em; }
 .primary-nav { display: flex; gap: 34px; margin-left: auto; margin-right: 35px; }
 .primary-nav button { border: 0; background: none; cursor: pointer; padding: 12px 0; font-size: 13px; font-weight: 650; }
@@ -314,7 +313,7 @@ body.is-editing .hero-art { pointer-events: none; }
   .page-shell { width: calc(100% - 40px); }
   .topbar { min-height: 106px; align-items: center; flex-wrap: wrap; gap: 0 15px; padding: 17px 0 0; position: relative; }
   .brand { font-size: 15px; }
-  .brand-symbol { width: 32px; height: 36px; font-size: 28px; }
+  .brand-symbol { width: 32px; height: 36px; }
   .brand-caption { font-size: 8px; }
   .primary-nav { order: 3; width: 100%; margin: 5px 0 0; justify-content: space-between; gap: 10px; }
   .primary-nav button { padding: 12px 0; font-size: 11px; }
