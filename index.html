@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4f2eb">
   <meta name="format-detection" content="telephone=no, email=no, address=no">
-  <meta name="description" content="게임의 재미를 발견하고, 플레이어의 경험으로 검증하는 게임 콘텐츠 기획자 김제연의 포트폴리오. 기업협약 프로젝트 제로게이트: 헌터즈의 레벨 디자인, 전투 밸런스, CBT 검증 기록.">
+  <meta name="description" content="“재미없다”는 피드백을 3.5배의 플레이로 바꾼 게임 콘텐츠 기획자 김제연의 포트폴리오. 심비온 업데이트 과정과 기업협약 프로젝트 제로게이트: 헌터즈의 레벨 디자인, 전투 밸런스, CBT 검증 기록.">
   <title>김제연 | 게임 기획자 포트폴리오</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
@@ -25,37 +25,63 @@
       <div class="landing-layout">
         <header class="landing-hero">
           <div class="hero-copy">
-            <div class="hero-eyebrow"><span class="status-dot"></span> 게임을 플레이하고, 재미를 설계합니다.</div>
-            <h1>재미의 다음을<br><em>기획합니다.</em><span class="heading-spark" aria-hidden="true">✳</span></h1>
-            <p class="hero-description">매일 발전하고 학습하는 콘텐츠 기획자, <strong>김제연</strong>입니다.<br>익숙한 경험에서 새로운 가능성을 찾고,<br>플레이어의 반응으로 더 나은 재미를 만들어갑니다.</p>
-            <div class="hero-actions"><button class="button-primary" type="button" data-page-target="portfolio">프로젝트 살펴보기 <span aria-hidden="true">↗</span></button><button class="text-button" type="button" data-page-target="resume">저를 소개합니다 <span aria-hidden="true">→</span></button></div>
+            <div class="hero-eyebrow"><span class="status-dot"></span> 게임 콘텐츠 기획자 김제연 · 즉시 합류 가능</div>
+            <h1 class="hook-title">“재미없다”는 피드백을<br><em>3.5배의 플레이</em>로<br>바꿨습니다.</h1>
+            <p class="hero-description">혹평을 모아 핵심 재미를 다시 찾았고, 업데이트 당일 플레이 유저는 이전 고점의 3.5배가 됐습니다. <br>지금은 기획을 <strong>직접 구현하고, CBT 플레이 로그로 검증</strong>합니다.</p>
+            <div class="hero-actions"><a class="button-primary" href="#turnaround">어떻게 바꿨는지 보기 <span aria-hidden="true">↓</span></a><button class="text-button" type="button" data-page-target="resume">이력서 바로 보기 <span aria-hidden="true">→</span></button></div>
             <div class="hero-tags"><span>레벨 디자인</span><i></i><span>전투 · 밸런스</span><i></i><span>CBT 데이터 검증</span></div>
           </div>
-          <div class="hero-art">
+          <a class="hero-art" href="#selected-work" aria-label="진행 중인 기업협약 프로젝트 제로게이트: 헌터즈 보기">
             <div class="art-grid" aria-hidden="true"></div><span class="art-coordinate" aria-hidden="true">NOW PLAYING — 기업협약 프로젝트</span>
             <div class="project-print"><div class="print-heading"><span>제로게이트: 헌터즈 <b>ZEROGATE: HUNTERS</b></span><span>2026.10 — 12</span></div><img src="assets/images/zerogate/key-visual.jpg" alt="제로게이트: 헌터즈 — 불꽃 궁극기를 준비하는 헌터 백화린" fetchpriority="high"><div class="print-footer"><span>도심 게이트를 공략하는 쿼터뷰 로그라이트 액션</span><span aria-hidden="true">↗</span></div></div>
             <span class="art-sticker">기획부터<br>CBT까지.</span><span class="art-caption">기획 → 구현 → 플레이 검증 → 개선</span>
-          </div>
+          </a>
         </header>
-        <div class="index-strip"><span>좋은 기획은, <strong>한 번 더 플레이하고 싶은 경험.</strong></span><a href="#selected-work">작업 기록으로 스크롤 <span aria-hidden="true">↓</span></a></div>
+        <div class="scoreboard" aria-label="숫자로 보는 요약">
+          <a href="#turnaround"><strong><b data-count="3.5" data-decimals="1">3.5</b><i>×</i></strong><span>업데이트 당일 플레이 유저<small>심비온 · 이전 고점 대비</small></span></a>
+          <a href="#selected-work"><strong><b data-count="163">163</b></strong><span>직접 반영한 커밋<small>제로게이트 · Claude Code 협업</small></span></a>
+          <a href="#selected-work"><strong><b data-count="12">12</b></strong><span>메인 퀘스트 단계 설계<small>제로게이트 · 테마 게이트 3종</small></span></a>
+          <a href="#player-log"><strong><b data-count="8980" data-play-total>8,980</b><i>h</i></strong><span>플레이 기록<small>게임 <span data-play-count>100</span>개 · 플레이어로서의 시간</small></span></a>
+        </div>
+        <section class="landing-section turnaround" id="turnaround" aria-labelledby="turnaround-title">
+          <div class="turnaround-head" data-reveal><div><p class="section-index">01 / TURNAROUND · 심비온</p><h2 id="turnaround-title">혹평에서 시작한 업데이트.</h2></div><span class="turnaround-role">ACTION PLATFORMER · 5인 팀 · PD · 보스 패턴 기획 · 2026.07 — 09</span></div>
+          <ol class="turn-steps" data-reveal>
+            <li><span class="turn-label">BEFORE — 얼리 액세스 피드백</span><p class="turn-quote">“재미가 없다.”<br>“지루하다.”</p><p>얼리 액세스 단계에서 받은 플레이 피드백은 부정적인 의견이 주를 이뤘습니다.</p></li>
+            <li><span class="turn-label">DECISION — 핵심 재미 다시 고르기</span><h3>반응이 좋았던<br>‘보스 전투’에 집중.</h3><p>피드백을 더 수집해 팀과 분석하고, 일반 스테이지 비중을 줄여 보스 러시로 전환했습니다. 남은 일정에 맞춰 리소스는 최대한 재활용했습니다.</p></li>
+            <li><span class="turn-label">AFTER — 업데이트 당일</span><strong class="turn-number">3.5<i>×</i></strong><p>이전 고점 대비 플레이 유저 수.<small>itch.io 누적 · 방문 348 · 플레이 115 · 다운로드 21</small></p></li>
+          </ol>
+          <div class="turn-foot" data-reveal>
+            <div class="turn-video"><video muted playsinline loop preload="none" poster="assets/images/symbion-gameplay.jpg" controls aria-label="심비온 플레이 영상"><source src="assets/videos/symbion-pv.mp4" type="video/mp4"></video></div>
+            <div class="turn-lesson"><span class="turn-label">LESSON — 다시 한다면</span><p class="turn-lesson-text">프로토타입 단계에서 재미 검증에 더 많은 시간을 쓰겠습니다. 문제를 일찍 찾을수록 완성도에 쓸 시간이 늘어납니다.</p><div class="turn-links"><a class="text-button" href="https://mystia1.itch.io/symbion" target="_blank" rel="noopener noreferrer">itch.io에서 플레이 <span aria-hidden="true">↗</span></a><a class="text-button" href="assets/documents/20260902_발표자료_Ver2.0.pdf" target="_blank" rel="noopener noreferrer">발표자료 PDF <span aria-hidden="true">↗</span></a><button type="button" class="text-button" data-page-target="cover-letter">회고 전문 읽기 <span aria-hidden="true">→</span></button></div></div>
+          </div>
+        </section>
         <section class="landing-section work-section" id="selected-work" aria-labelledby="landing-projects-title">
-          <div class="section-heading editorial-heading"><div><p class="section-index">01 / FEATURED WORK · 기업협약</p><h2 id="landing-projects-title">기획을 직접 플레이로.</h2></div><button type="button" class="text-button" data-page-target="portfolio">전체 프로젝트 <span aria-hidden="true">↗</span></button></div>
-          <article class="featured-project">
-            <div class="feature-visual"><img src="assets/images/zerogate/key-visual.jpg" alt="제로게이트: 헌터즈 대표 이미지" loading="lazy"><span class="visual-label">01 / ZEROGATE: HUNTERS</span><a class="video-trigger" href="#zerogate-gates"><span class="play-icon" aria-hidden="true">▶</span> 게이트 플레이 클립 보기 <span>3 GATES</span></a></div>
+          <div class="section-heading editorial-heading" data-reveal><div><p class="section-index">02 / NOW PLAYING · 기업협약</p><h2 id="landing-projects-title">이번에는, 기획을 직접 플레이로.</h2></div><button type="button" class="text-button" data-page-target="portfolio">전체 프로젝트 <span aria-hidden="true">↗</span></button></div>
+          <article class="featured-project" data-reveal>
+            <div class="feature-visual"><img src="assets/images/zerogate/key-visual.jpg" alt="제로게이트: 헌터즈 대표 이미지" loading="lazy"><span class="visual-label">ZEROGATE: HUNTERS</span><a class="video-trigger" href="#zerogate-gates"><span class="play-icon" aria-hidden="true">▶</span> 게이트 플레이 클립 보기 <span>3 GATES</span></a></div>
             <div class="feature-copy"><div class="project-topline"><span class="project-category">기업협약 · 쿼터뷰 로그라이트 액션</span><span>2026.10 — 12</span></div><h3>제로게이트<span>ZEROGATE: HUNTERS</span></h3><p class="feature-summary">문서로 끝나지 않는 기획,<br><strong>직접 만들고 플레이로 검증하다.</strong></p><p class="feature-detail">현대 한국 도심에 열린 차원 게이트에서 헌터들이 괴이와 맞서는 쿼터뷰 액션. 레벨 디자인·스토리·튜토리얼 기획을 Claude Code로 직접 구현하고, CBT 플레이 로그로 검증하며 개선했습니다.</p><div class="project-meta"><span>Team Pirate Alliance</span><span>레벨 디자인</span><span>전투 · 밸런스</span><span>CBT · KPI</span></div><div class="feature-stats"><div><strong>3</strong><p>메인 퀘스트<br>테마 게이트</p></div><div><strong>12</strong><p>메인 퀘스트<br>단계 설계</p></div><div><strong>163</strong><p>직접 반영한 커밋<br><small>Claude Code 협업</small></p></div></div><button class="text-button project-more" type="button" data-page-target="portfolio">프로젝트 기록 보기 <span aria-hidden="true">↗</span></button></div>
           </article>
-          <div class="gate-grid" id="zerogate-gates" aria-label="제로게이트 메인 퀘스트 게이트">
+          <div class="gate-grid" id="zerogate-gates" aria-label="제로게이트 메인 퀘스트 게이트" data-reveal>
             <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-snowfield.gif" alt="얼어붙은 설원 게이트: 눈사람 기사와 얼음 정령을 지나 눈의 왕과 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 01</span><h3>얼어붙은 설원</h3><p><strong>길 자체가 도전.</strong> 눈덩이 포대 협곡, 고드름 낙하, 거대 눈덩이 추격까지 7구간을 이어 빙하 횡단의 긴장을 설계했습니다.</p></article>
             <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-arcade.gif" alt="끝없는 오락실 게이트: 지뢰찾기 바닥 위에서 복셀 몬스터와 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 02</span><h3>끝없는 오락실</h3><p><strong>아는 게임 속을 걷는 재미.</strong> 바닥만 봐도 어떤 게임인지 알 수 있도록 지뢰찾기·블록·아케이드 규칙을 공간으로 옮겼습니다.</p></article>
             <article class="gate-card"><div class="gate-media"><img src="assets/images/zerogate/gate-factory.gif" alt="멈추지 않는 라인 게이트: 생산 컨베이어를 부수고 벨트 펭귄과 싸우는 장면" loading="lazy"></div><span class="gate-index">GATE 03</span><h3>멈추지 않는 라인</h3><p><strong>배경이 아니라 적으로.</strong> 장식으로 읽히던 생산 컨베이어가 반격하게 바꿔, 플레이어가 부숴야 할 대상으로 인식하도록 개선했습니다.</p></article>
           </div>
-          <div class="process-strip" aria-label="작업 방식"><span class="section-index">HOW I WORKED</span><ol><li><b>01</b>기획 문서<small>레벨 · 퀘스트 · 데이터 테이블</small></li><li><b>02</b>직접 구현<small>Claude Code로 Unity 반영</small></li><li><b>03</b>플레이 검증<small>CBT 세션별 KPI 로그</small></li><li><b>04</b>개선<small>버그 리포트 · 밸런스 패스</small></li></ol></div>
-          <p class="section-index other-work-label">OTHER PROJECTS</p>
-          <div class="secondary-projects"><article class="project-row"><span class="row-number">02</span><div><span class="project-category">ACTION PLATFORMER / 2026.07 — 09</span><h3>심비온</h3><p>플레이 피드백을 모아 보스 전투 중심으로 업데이트한 5인 팀 프로젝트.</p><div class="project-meta"><span>5인 팀</span><span>PD</span><span>보스 기획</span></div></div><button class="round-link" type="button" data-page-target="cover-letter" aria-label="심비온 문제 해결 과정 읽기">↗</button></article><article class="project-row"><span class="row-number">03</span><div><span class="project-category">IDLE · CLICKER / 2026.05 — 07</span><h3>까미스트리밍 아이들러 클리커</h3><p>작은 팀에서 시스템과 밸런스를 함께 설계한 첫 프로젝트.</p><div class="project-meta"><span>2인 팀</span><span>PD · PM</span><span>시스템 · 데이터</span></div></div><button class="round-link" type="button" data-page-target="resume" aria-label="까미스트리밍 프로젝트 경험 보기">↗</button></article></div>
+          <div class="process-strip" aria-label="작업 방식" data-reveal><span class="section-index">HOW I WORKED</span><ol><li><b>01</b>기획 문서<small>레벨 · 퀘스트 · 데이터 테이블</small></li><li><b>02</b>직접 구현<small>Claude Code로 Unity 반영</small></li><li><b>03</b>플레이 검증<small>CBT 세션별 KPI 로그</small></li><li><b>04</b>개선<small>버그 리포트 · 밸런스 패스</small></li></ol></div>
+          <p class="section-index other-work-label">MORE</p>
+          <div class="secondary-projects"><article class="project-row"><span class="row-number">03</span><div><span class="project-category">IDLE · CLICKER / 2026.05 — 07</span><h3>까미스트리밍 아이들러 클리커</h3><p>작은 팀에서 시스템과 밸런스를 함께 설계한 첫 프로젝트.</p><div class="project-meta"><span>2인 팀</span><span>PD · PM</span><span>시스템 · 데이터</span></div></div><button class="round-link" type="button" data-page-target="resume" aria-label="까미스트리밍 프로젝트 경험 보기">↗</button></article><article class="project-row"><span class="row-number">ALL</span><div><span class="project-category">DOCUMENTS / 기획서 · 발표자료</span><h3>전체 프로젝트 기록</h3><p>프로젝트별 요약과 첨부 문서를 한곳에서 볼 수 있습니다.</p></div><button class="round-link" type="button" data-page-target="portfolio" aria-label="전체 프로젝트 기록 보기">↗</button></article></div>
         </section>
-        <section class="landing-section thinking-section" aria-labelledby="thinking-title"><div class="thinking-intro"><p class="section-index">02 / MY APPROACH</p><h2 id="thinking-title">플레이는 깊게.<br>기획은 선명하게.</h2><button type="button" class="text-button" data-page-target="cover-letter">기획자의 생각 더 읽기 <span aria-hidden="true">↗</span></button></div><div class="principles"><article><span>01</span><div><h3>경험에서 발견합니다.</h3><p>다양한 게임을 깊이 플레이하며, 익숙한 요소가 새로운 재미로 연결되는 순간을 관찰합니다.</p></div></article><article><span>02</span><div><h3>피드백으로 검증합니다.</h3><p>플레이어의 반응을 수집하고, 핵심 재미를 찾아 실제 플레이 경험의 개선으로 이어갑니다.</p></div></article><article><span>03</span><div><h3>같은 언어로 협업합니다.</h3><p>함께 만드는 사람의 작업을 이해하기 위해 학습합니다. 명확한 기획으로 팀에 안정감을 주고 싶습니다.</p></div></article></div></section>
-        <section class="about-strip"><div class="about-portrait"><img src="profile-photo.png" alt="김제연" loading="lazy"></div><div><span class="section-index">PLAYER → GAME DESIGNER</span><h2>경험을 쌓고, 가능성을 넓히는 사람.</h2><p>게임을 좋아하는 마음에서 시작해, 함께 만들 수 있는 역량으로.</p></div><button class="text-button" type="button" data-page-target="resume">이력서 & 게임 경험 <span aria-hidden="true">↗</span></button></section>
-        <section class="contact-section"><div><p class="section-index">LET’S MAKE THE NEXT PLAY.</p><h2>함께 만들 다음 경험을<br>기다립니다<span>.</span></h2></div><a href="mailto:ehddus42@gmail.com" class="contact-link">ehddus42@gmail.com <span aria-hidden="true">↗</span></a></section>
+        <section class="landing-section player-log" id="player-log" aria-labelledby="player-log-title">
+          <div class="player-intro" data-reveal><p class="section-index">03 / PLAYER LOG</p><h2 id="player-log-title"><span data-play-total>8,980</span>시간,<br><span data-play-count>100</span>개의 게임.</h2><p>한 게임의 요소가 다른 게임에서 변형되고 융합되어 새로운 재미가 되는 순간을 찾습니다. 플레이 기록이 곧 기획의 레퍼런스입니다.</p><div class="player-id"><div class="about-portrait"><img src="profile-photo.png" alt="김제연" loading="lazy"></div><div><span class="section-index">PLAYER → GAME DESIGNER</span><button class="text-button" type="button" data-page-target="resume">전체 플레이 기록 · 이력서 <span aria-hidden="true">↗</span></button></div></div></div>
+          <ol class="play-bars" data-play-top aria-label="플레이 시간 상위 5개 게임" data-reveal>
+            <li><span class="play-rank">01</span><span class="play-name">이터널 리턴<small>배틀로얄 · MOBA</small></span><span class="play-hours">3,954h</span><span class="play-bar" aria-hidden="true"><i style="--w:100%"></i></span></li>
+            <li><span class="play-rank">02</span><span class="play-name">레인보우 식스 시즈<small>택티컬 FPS</small></span><span class="play-hours">1,036h</span><span class="play-bar" aria-hidden="true"><i style="--w:26.2%"></i></span></li>
+            <li><span class="play-rank">03</span><span class="play-name">Shadowverse: Worlds Beyond<small>카드 배틀</small></span><span class="play-hours">835h</span><span class="play-bar" aria-hidden="true"><i style="--w:21.1%"></i></span></li>
+            <li><span class="play-rank">04</span><span class="play-name">PUBG: BATTLEGROUNDS<small>배틀로얄</small></span><span class="play-hours">761h</span><span class="play-bar" aria-hidden="true"><i style="--w:19.2%"></i></span></li>
+            <li><span class="play-rank">05</span><span class="play-name">Palworld<small>생존 · 크래프팅</small></span><span class="play-hours">292h</span><span class="play-bar" aria-hidden="true"><i style="--w:7.4%"></i></span></li>
+          </ol>
+        </section>
+        <section class="landing-section thinking-section" aria-labelledby="thinking-title"><div class="thinking-intro" data-reveal><p class="section-index">04 / MY APPROACH</p><h2 id="thinking-title">플레이는 깊게.<br>기획은 선명하게.</h2><button type="button" class="text-button" data-page-target="cover-letter">기획자의 생각 더 읽기 <span aria-hidden="true">↗</span></button></div><div class="principles" data-reveal><article><span>01</span><div><h3>경험에서 발견합니다.</h3><p>다양한 게임을 깊이 플레이하며, 익숙한 요소가 새로운 재미로 연결되는 순간을 관찰합니다.</p></div></article><article><span>02</span><div><h3>피드백으로 검증합니다.</h3><p>플레이어의 반응을 수집하고, 핵심 재미를 찾아 실제 플레이 경험의 개선으로 이어갑니다.</p></div></article><article><span>03</span><div><h3>같은 언어로 협업합니다.</h3><p>함께 만드는 사람의 작업을 이해하기 위해 학습합니다. 명확한 기획으로 팀에 안정감을 주고 싶습니다.</p></div></article></div></section>
+        <section class="contact-section" data-reveal><div><p class="section-index">READY — 출근 가능일 · 즉시</p><h2>다음 플레이는,<br>함께 만들고 싶습니다<span>.</span></h2></div><div class="contact-actions"><a href="mailto:ehddus42@gmail.com" class="contact-link">ehddus42@gmail.com <span aria-hidden="true">↗</span></a><div class="contact-sub"><button type="button" class="text-button" data-copy-email="ehddus42@gmail.com">이메일 복사</button><button type="button" class="text-button" data-page-target="resume">이력서 보기 <span aria-hidden="true">→</span></button></div></div></section>
       </div>
     </section>
     <nav class="view-switcher" id="page-menu" role="tablist" aria-label="포트폴리오 페이지 메뉴">
@@ -266,7 +292,7 @@ itch.io 지표
           <h1>수정 기록</h1>
           <p>날짜별 변경 기록.</p>
         </header>
-        <div class="update-timeline" aria-label="업데이트 기록"><article class="update-entry update-entry--current"><time class="update-date" datetime="2026-11-03">2026.11.03</time><div><h2>기업협약 프로젝트 중심으로 재구성</h2><ul><li>표지와 대표 프로젝트를 제로게이트: 헌터즈(Team Pirate Alliance)로 교체.</li><li>메인 퀘스트 게이트 3종 플레이 클립과 작업 방식(기획 → 구현 → 검증 → 개선) 추가.</li><li>심비온 · 까미스트리밍은 기타 프로젝트로 정리.</li><li>이력서 프로젝트 경험과 포트폴리오 카드에 기업협약 프로젝트 내용 추가.</li></ul></div></article><article class="update-entry"><time class="update-date" datetime="2026-10-30">2026.10.30</time><div><h2>게임 기획 노트로 새롭게 구성</h2><ul><li>프로젝트와 문제 해결 과정을 중심으로 첫 화면 재구성.</li><li>아이보리와 주홍색을 활용한 디자인 및 모바일 화면 개선.</li><li>게임 목록 검색, 영상 보기, 페이지 이동 및 문서 열람 개선.</li></ul></div></article>
+        <div class="update-timeline" aria-label="업데이트 기록"><article class="update-entry update-entry--current"><time class="update-date" datetime="2026-11-13">2026.11.13</time><div><h2>첫 화면 구성 재편 · 후킹 요소 추가</h2><ul><li>첫 문장을 심비온 업데이트 성과(이전 고점 대비 3.5배)로 교체.</li><li>핵심 숫자 요약 스트립 추가(3.5배 · 163 커밋 · 12단계 · 8,980시간).</li><li>심비온을 BEFORE → DECISION → AFTER 사례로 재구성하고 영상·발표자료 연결.</li><li>플레이 시간 상위 5개 게임을 보여주는 PLAYER LOG 섹션 추가.</li><li>연락처에 출근 가능일과 이메일 복사 버튼 추가.</li></ul></div></article><article class="update-entry"><time class="update-date" datetime="2026-11-03">2026.11.03</time><div><h2>기업협약 프로젝트 중심으로 재구성</h2><ul><li>표지와 대표 프로젝트를 제로게이트: 헌터즈(Team Pirate Alliance)로 교체.</li><li>메인 퀘스트 게이트 3종 플레이 클립과 작업 방식(기획 → 구현 → 검증 → 개선) 추가.</li><li>심비온 · 까미스트리밍은 기타 프로젝트로 정리.</li><li>이력서 프로젝트 경험과 포트폴리오 카드에 기업협약 프로젝트 내용 추가.</li></ul></div></article><article class="update-entry"><time class="update-date" datetime="2026-10-30">2026.10.30</time><div><h2>게임 기획 노트로 새롭게 구성</h2><ul><li>프로젝트와 문제 해결 과정을 중심으로 첫 화면 재구성.</li><li>아이보리와 주홍색을 활용한 디자인 및 모바일 화면 개선.</li><li>게임 목록 검색, 영상 보기, 페이지 이동 및 문서 열람 개선.</li></ul></div></article>
           <article class="update-entry update-entry--current">
             <time class="update-date" datetime="2026-09-11">2026.09.11</time>
             <div>

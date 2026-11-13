@@ -444,3 +444,109 @@ a.video-trigger { text-decoration: none; }
   .process-strip li:nth-child(3)::before { display: none; }
   .other-work-label { margin-top: 42px; }
 }
+/* Hook-first landing: headline claim, scoreboard, turnaround case, player log. */
+.landing-hero h1.hook-title { font-size: clamp(38px, 4.05vw, 62px); line-height: 1.27; margin: 26px 0 24px; }
+@media (min-width: 1101px) { .landing-hero { min-height: 0; padding: 44px 0 48px; } }
+.hook-title em { background: linear-gradient(transparent 80%, #cc422730 0); padding: 0 2px; }
+a.button-primary, a.text-button { text-decoration: none; }
+a.hero-art { display: block; color: inherit; text-decoration: none; }
+.scoreboard { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-top: 1px solid var(--pearl); border-bottom: 1px solid var(--pearl); }
+.scoreboard a { display: block; padding: 24px 22px 22px; color: var(--ink); text-decoration: none; transition: background .2s; }
+.scoreboard a + a { border-left: 1px solid var(--pearl); }
+.scoreboard a:hover { background: var(--paper); }
+.scoreboard strong { display: block; font: 500 44px/1 var(--mono); letter-spacing: -.08em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.scoreboard strong b { font-weight: inherit; }
+.scoreboard strong i { font-style: normal; font-size: 26px; padding-left: 5px; }
+.scoreboard a > span { display: block; margin-top: 12px; font-size: 12px; font-weight: 650; }
+.scoreboard small { display: block; margin-top: 3px; font-size: 10px; font-weight: 400; color: var(--slate); }
+.turnaround { margin-top: 78px; padding: 46px 44px 44px; background: var(--ink); color: #e9e8df; scroll-margin-top: 24px; }
+.turnaround .section-index, .turnaround-role { color: #a9ad9f; }
+.turnaround-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.turnaround h2 { margin: 0; font-size: 36px; letter-spacing: -.055em; line-height: 1.3; color: #fff; }
+.turnaround-role { font: 10px var(--mono); letter-spacing: .02em; text-align: right; }
+.turn-steps { display: grid; grid-template-columns: 1fr 1.2fr 1fr; margin: 0; padding: 0; list-style: none; border-top: 1px solid #ffffff26; }
+.turn-steps li { position: relative; padding: 26px 30px 4px 0; }
+.turn-steps li + li { padding-left: 30px; border-left: 1px solid #ffffff26; }
+.turn-steps li + li::before { content: '→'; position: absolute; left: -10px; top: 22px; width: 20px; text-align: center; background: var(--ink); color: #f17c54; }
+.turn-label { display: block; margin-bottom: 18px; font: 10px var(--mono); letter-spacing: .06em; color: #f17c54; }
+.turnaround .turn-quote { margin: 0 0 14px; font-size: 27px; font-weight: 750; line-height: 1.4; letter-spacing: -.05em; color: #fff; }
+.turn-steps h3 { margin: 0 0 12px; font-size: 21px; line-height: 1.45; letter-spacing: -.04em; color: #fff; }
+.turn-steps p { margin: 0; font-size: 12px; line-height: 1.9; color: #c3c6ba; }
+.turn-number { display: block; margin: -8px 0 14px; font: 500 76px/1 var(--mono); letter-spacing: -.08em; color: #f17c54; }
+.turn-number i { font-style: normal; font-size: 44px; padding-left: 6px; }
+.turn-steps small { display: block; margin-top: 8px; font-size: 10px; color: #9a9e90; }
+.turn-foot { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 40px; margin-top: 34px; padding-top: 30px; border-top: 1px solid #ffffff26; }
+.turn-video { aspect-ratio: 16/9; background: #121b1a; border: 1px solid #ffffff26; }
+.turn-video video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.turnaround .turn-lesson-text { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.7; letter-spacing: -.035em; color: #fff; }
+.turn-links { display: flex; flex-wrap: wrap; gap: 6px 26px; margin-top: 22px; }
+.turnaround .text-button { color: #fff; gap: 10px; }
+.turnaround .text-button:hover { color: #f17c54; }
+.turnaround :focus-visible { outline-color: #f17c54; }
+.player-log { display: grid; grid-template-columns: 1fr 1.25fr; gap: 70px; margin-top: 75px; padding: 90px 0 0; border-top: 1px solid var(--pearl); scroll-margin-top: 24px; }
+.player-intro h2 { margin: 0; font-size: 36px; letter-spacing: -.055em; line-height: 1.3; color: var(--ink); }
+.player-intro > p:not(.section-index) { margin: 18px 0 0; font-size: 13px; line-height: 1.9; color: var(--slate); }
+.player-id { display: flex; align-items: center; gap: 18px; margin-top: 30px; }
+.player-id .section-index { display: block; margin: 0 0 2px; font-size: 9px; }
+.play-bars { margin: 0; padding: 0; list-style: none; }
+.play-bars li { display: grid; grid-template-columns: 24px minmax(0,1fr) auto; column-gap: 14px; align-items: baseline; padding: 17px 0 16px; border-top: 1px solid var(--pearl); }
+.play-bars li:first-child { padding-top: 0; border-top: 0; }
+.play-rank { font: 11px var(--mono); color: var(--accent); }
+.play-name { font-size: 15px; font-weight: 650; color: var(--ink); }
+.play-name small { padding-left: 9px; font-size: 10px; font-weight: 400; color: var(--slate); }
+.play-hours { font: 13px var(--mono); color: var(--ink); }
+.play-bar { grid-column: 2 / -1; height: 6px; margin-top: 11px; background: #e3e3d8; }
+.play-bar i { display: block; width: var(--w); height: 100%; background: var(--ink); transform-origin: left; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.play-bars li:first-child .play-bar i { background: var(--accent); }
+.contact-actions { display: grid; gap: 14px; }
+.contact-sub { display: flex; justify-content: flex-end; gap: 26px; }
+.has-reveal [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.has-reveal [data-reveal].is-in, body.is-editing [data-reveal] { opacity: 1; transform: none; }
+.has-reveal .play-bars:not(.is-in) .play-bar i { transform: scaleX(0); }
+@media (prefers-reduced-motion: reduce) { .has-reveal [data-reveal] { opacity: 1; transform: none; transition: none; } .play-bar i { transition: none; transform: none !important; } }
+@media (max-width: 1100px) {
+  .scoreboard strong { font-size: 38px; }
+  .scoreboard a { padding: 22px 16px 20px; }
+  .turnaround { padding: 38px 30px 34px; }
+  .turnaround-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .turnaround-role { text-align: left; }
+  .turn-number { font-size: 62px; }
+  .turnaround .turn-quote { font-size: 23px; }
+  .turn-steps h3 { font-size: 19px; }
+  .player-log { gap: 45px; }
+}
+@media (max-width: 860px) {
+  .landing-hero h1.hook-title { font-size: 36px; }
+  .scoreboard { grid-template-columns: 1fr 1fr; }
+  .scoreboard a:nth-child(odd) { border-left: 0; }
+  .scoreboard a:nth-child(n+3) { border-top: 1px solid var(--pearl); }
+  .turn-steps li { padding-right: 20px; }
+  .turn-steps li + li { padding-left: 20px; }
+  .turn-foot { grid-template-columns: 1fr; gap: 26px; }
+  .player-log { gap: 35px; }
+  .player-intro h2 { font-size: 29px; }
+  .contact-sub { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .landing-hero h1.hook-title { font-size: clamp(31px, 8.6vw, 44px); margin: 22px 0 20px; }
+  .hero-description br { display: none; }
+  .scoreboard strong { font-size: 34px; }
+  .scoreboard strong i { font-size: 20px; }
+  .scoreboard a { padding: 18px 14px 16px; }
+  .scoreboard a > span { font-size: 11px; }
+  .turnaround { margin: 52px -20px 0; padding: 34px 20px 30px; }
+  .turnaround h2 { font-size: 29px; }
+  .turn-steps { grid-template-columns: 1fr; }
+  .turn-steps li, .turn-steps li + li { padding: 24px 0 22px; border-left: 0; }
+  .turn-steps li + li { border-top: 1px solid #ffffff26; }
+  .turn-steps li + li::before { content: '↓'; left: auto; right: 0; top: -11px; }
+  .turnaround .turn-quote { font-size: 26px; }
+  .turn-number { margin-top: 0; font-size: 66px; }
+  .turn-foot { margin-top: 6px; }
+  .turnaround .turn-lesson-text { font-size: 17px; }
+  .player-log { grid-template-columns: 1fr; gap: 34px; margin-top: 51px; padding-top: 52px; }
+  .player-intro h2 { font-size: 32px; }
+  .play-name { font-size: 14px; }
+  .play-name small { display: block; padding: 2px 0 0; }
+  .contact-actions { width: 100%; }
+}
