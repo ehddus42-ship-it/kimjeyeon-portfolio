@@ -565,7 +565,7 @@ body:not(.is-editing) .documents-label ~ .case-stack .case-card.is-draft { displ
   .documents-label ~ .case-stack .case-copy { padding-left: 14px; }
 }
 .player-intro .text-button { margin-top: 22px; }
-.player-log--resume { gap: 40px; margin: 6px 0 30px; padding: 0 0 30px; border-top: 0; border-bottom: 1px solid var(--pearl); }
+.player-log--resume { grid-template-columns: 1fr; gap: 40px; margin: 6px 0 30px; padding: 0 0 30px; border-top: 0; border-bottom: 1px solid var(--pearl); }
 .player-log--resume .player-intro h2 { font-size: 27px; }
 .player-log--resume .section-index { margin-bottom: 12px; }
 .landing-hero .hook-title { width: auto; }
