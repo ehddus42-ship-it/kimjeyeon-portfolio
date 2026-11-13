@@ -78,8 +78,11 @@
     });
     document.querySelectorAll('[data-play-count]').forEach((el) => { el.textContent = games.length; });
     const top = games.filter((game) => game.hours > 0).sort((a, b) => b.hours - a.hours).slice(0, 5);
+    if (!top.length) return;
+    document.querySelectorAll('[data-play-top-name]').forEach((el) => { el.textContent = top[0].name; });
+    document.querySelectorAll('[data-play-top-hours]').forEach((el) => { el.textContent = Math.round(top[0].hours).toLocaleString('ko-KR'); });
     const bars = document.querySelector('[data-play-top]');
-    if (!bars || !top.length) return;
+    if (!bars) return;
     bars.replaceChildren(...top.map((game, index) => {
       const item = document.createElement('li');
       const add = (className, text) => { const span = document.createElement('span'); span.className = className; span.textContent = text; item.append(span); return span; };

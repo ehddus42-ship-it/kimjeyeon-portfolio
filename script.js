@@ -559,6 +559,9 @@
           if (anchor?.closest('.landing-cover')) {
             showCover(false, false);
             window.requestAnimationFrame(() => anchor.scrollIntoView({ block: 'start' }));
+          } else if (anchor?.closest('.view')) {
+            activate(anchor.closest('.view').id, { updateHash: false, focus: false });
+            window.requestAnimationFrame(() => anchor.scrollIntoView({ block: 'start' }));
           }
         }
       }
