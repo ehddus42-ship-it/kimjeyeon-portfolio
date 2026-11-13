@@ -639,3 +639,8 @@ body:not(.is-editing) .documents-label ~ .case-stack .case-card.is-draft { displ
   .play-name small { display: block; padding: 2px 0 0; }
   .contact-actions { width: 100%; }
 }
+/* Shouted hook: a short line can carry a much larger size. */
+.landing-hero h1.hook-title--shout { font-size: clamp(56px, 6.6vw, 98px); line-height: 1.16; margin: 24px 0 28px; }
+.hero-points li { grid-template-columns: 150px minmax(0,1fr); }
+@media (max-width: 860px) { .landing-hero h1.hook-title--shout { font-size: 54px; } .hero-points li { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .landing-hero h1.hook-title--shout { font-size: clamp(46px, 14vw, 64px); margin: 20px 0 22px; } }
