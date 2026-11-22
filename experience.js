@@ -1,6 +1,47 @@
 (() => {
   const gameList = document.querySelector('#game-list');
   if (gameList) {
+    const featuredGames = [
+      { name: 'Palworld / 팰월드', mechanics: '팰 포획 · 거점 생산' },
+      { name: 'Valheim', mechanics: '협동 생존 · 건축' },
+      { name: 'Terraria', mechanics: '탐험 · 제작 · 보스 진행' },
+      { name: 'Core Keeper', mechanics: '채굴 · 제작 · 거점 성장' },
+      { name: "Don't Starve Together", mechanics: '협동 생존 · 자원 관리' },
+      { name: 'ARK: Survival Evolved', mechanics: '길들이기 · 거점 건설' },
+    ];
+    const getGameName = (card) => card.querySelector('h3')?.textContent.trim();
+    const findFeaturedCards = () => {
+      const cards = new Map([...gameList.querySelectorAll('.game-card')].map(card => [getGameName(card), card]));
+      return featuredGames.map(game => ({ ...game, card: cards.get(game.name) })).filter(game => game.card);
+    };
+    if (gameList.dataset.gameLibrarySaved !== 'true') {
+      gameList.prepend(...findFeaturedCards().map(game => game.card));
+    }
+
+    const featuredSection = document.querySelector('.featured-play');
+    const featuredList = featuredSection?.querySelector('.featured-play-list');
+    const syncFeaturedGames = () => {
+      if (!featuredList) return;
+      const items = findFeaturedCards().flatMap(({ name, mechanics, card }) => {
+        const hours = card.querySelector('.game-details')?.textContent.match(/([\d,.]+)\s*시간/)?.[1];
+        if (!hours) return [];
+        const item = document.createElement('li');
+        const title = document.createElement('strong');
+        const record = document.createElement('span');
+        const detail = document.createElement('small');
+        title.textContent = name;
+        record.textContent = `${hours}시간`;
+        detail.textContent = mechanics;
+        item.append(title, record, detail);
+        return [item];
+      });
+      featuredList.replaceChildren(...items);
+      featuredSection.hidden = items.length === 0;
+    };
+    document.addEventListener('portfolio:edit-change', syncFeaturedGames);
+    new MutationObserver(syncFeaturedGames).observe(gameList, { childList: true, subtree: true, characterData: true });
+    syncFeaturedGames();
+
     let controls = document.querySelector('.library-controls');
     if (!controls) {
       controls = document.createElement('div'); controls.className = 'library-controls';
