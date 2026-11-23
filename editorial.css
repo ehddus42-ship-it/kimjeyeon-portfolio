@@ -504,7 +504,7 @@ a.hero-art { display: block; color: inherit; text-decoration: none; }
 .hero-points { margin: 30px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--pearl); }
 .hero-points li { display: grid; grid-template-columns: 112px minmax(0,1fr); gap: 14px; padding: 12px 0; border-top: 1px solid var(--pearl); font-size: 12px; color: var(--slate); }
 .hero-points b { color: var(--ink); font-weight: 700; }
-.player-sheet { display: grid; grid-template-columns: .82fr 1fr; gap: 16px; }
+.player-sheet { display: grid; grid-template-columns: 1fr; gap: 0; }
 .project-print .player-sheet img { width: 100%; height: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; filter: grayscale(1); }
 .player-sheet dl { display: grid; align-content: space-between; margin: 0; }
 .player-sheet dl > div { padding: 10px 0 9px; border-top: 1px solid var(--pearl); }
@@ -653,6 +653,6 @@ body:not(.is-editing) .documents-label ~ .case-stack .case-card.is-draft { displ
 }
 /* Shouted hook: a short line can carry a much larger size. */
 .landing-hero h1.hook-title--shout { font-size: clamp(56px, 6.6vw, 98px); line-height: 1.16; margin: 24px 0 28px; }
-.hero-points li { grid-template-columns: 150px minmax(0,1fr); }
+.hero-points li { grid-template-columns: 116px minmax(0,1fr); }
 @media (max-width: 860px) { .landing-hero h1.hook-title--shout { font-size: 54px; } .hero-points li { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .landing-hero h1.hook-title--shout { font-size: clamp(46px, 14vw, 64px); margin: 20px 0 22px; } }
