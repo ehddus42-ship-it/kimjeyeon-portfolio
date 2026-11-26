@@ -110,7 +110,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .principles h3 { margin: 0 0 10px; font-size: 19px; font-weight: 650; }
 .principles p { margin: 0; font-size: 13px; color: var(--slate); line-height: 1.9; }
 .about-strip { display: flex; align-items: center; gap: 26px; padding: 30px 35px; background: #e9eadf; }
-.about-portrait { width: 65px; height: 78px; overflow: hidden; flex-shrink: 0; filter: grayscale(1); }
+.about-portrait { width: 65px; height: 78px; overflow: hidden; flex-shrink: 0; }
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .about-strip .section-index { font-size: 9px; }
 .about-strip h2 { font-size: 20px; margin: 6px 0 7px; }
@@ -505,7 +505,7 @@ a.hero-art { display: block; color: inherit; text-decoration: none; }
 .hero-points li { display: grid; grid-template-columns: 112px minmax(0,1fr); gap: 14px; padding: 12px 0; border-top: 1px solid var(--pearl); font-size: 12px; color: var(--slate); }
 .hero-points b { color: var(--ink); font-weight: 700; }
 .player-sheet { display: grid; grid-template-columns: 1fr; gap: 0; }
-.project-print .player-sheet img { width: 100%; height: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; filter: grayscale(1); }
+.project-print .player-sheet img { width: 100%; height: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; }
 .player-sheet dl { display: grid; align-content: space-between; margin: 0; }
 .player-sheet dl > div { padding: 10px 0 9px; border-top: 1px solid var(--pearl); }
 .player-sheet dl > div:first-child { padding-top: 0; border-top: 0; }
