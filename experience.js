@@ -159,6 +159,14 @@
       reveal.unobserve(entry.target);
     }), { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('[data-reveal]').forEach((el) => reveal.observe(el));
+    document.addEventListener('portfolio:view-change', (event) => {
+      const viewId = event.detail?.viewId;
+      const scope = viewId === 'home' ? document.querySelector('#home') : document.getElementById(viewId);
+      scope?.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.classList.add('is-in');
+        reveal.unobserve(el);
+      });
+    });
     const board = document.querySelector('.scoreboard');
     if (board) {
       const counting = new IntersectionObserver((entries) => {
@@ -170,6 +178,49 @@
     }
   }
 
+  // Hero featured build switcher.
+  document.querySelectorAll('[data-showcase]').forEach((showcase) => {
+    const tabs = [...showcase.querySelectorAll('[data-showcase-tab]')];
+    const panels = [...showcase.querySelectorAll('[data-showcase-panel]')];
+    const select = (index) => {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.showcaseTab === String(index);
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach((panel) => {
+        const active = panel.dataset.showcasePanel === String(index);
+        panel.classList.toggle('is-active', active);
+        panel.hidden = !active;
+      });
+    };
+    tabs.forEach((tab) => tab.addEventListener('click', () => select(tab.dataset.showcaseTab)));
+  });
+
+  // ZeroGate key-visual / lobby level image toggle.
+  document.querySelectorAll('[data-zg-gallery]').forEach((gallery) => {
+    const buttons = [...gallery.querySelectorAll('[data-zg-btn]')];
+    const images = [...gallery.querySelectorAll('[data-zg-img]')];
+    const show = (key) => {
+      buttons.forEach((btn) => btn.classList.toggle('is-active', btn.dataset.zgBtn === key));
+      images.forEach((img) => { img.hidden = img.dataset.zgImg !== key; });
+    };
+    buttons.forEach((btn) => btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      show(btn.dataset.zgBtn);
+    }));
+  });
+
+  // Ensure cross-view anchor jumps work reliably even when the hash is unchanged.
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('href').slice(1);
+      if (!targetId || window.location.hash !== '#' + targetId) return;
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+  });
+
   // Keep runtime animation state out of the file written by "현재 파일에 적용".
   document.addEventListener('portfolio:before-save', (event) => {
     const saved = event.detail?.document;
@@ -178,6 +229,20 @@
     saved.querySelectorAll('.is-in').forEach((el) => el.classList.remove('is-in'));
     saved.querySelectorAll('[data-count]').forEach(settle);
     saved.querySelectorAll('[data-copy-email]').forEach((button) => { button.textContent = '이메일 복사'; });
+    saved.querySelectorAll('[data-showcase]').forEach((showcase) => {
+      showcase.querySelectorAll('[data-showcase-tab]').forEach((tab, idx) => {
+        tab.classList.toggle('is-active', idx === 0);
+        tab.setAttribute('aria-selected', String(idx === 0));
+      });
+      showcase.querySelectorAll('[data-showcase-panel]').forEach((panel, idx) => {
+        panel.classList.toggle('is-active', idx === 0);
+        panel.hidden = idx !== 0;
+      });
+    });
+    saved.querySelectorAll('[data-zg-gallery]').forEach((gallery) => {
+      gallery.querySelectorAll('[data-zg-btn]').forEach((btn, idx) => btn.classList.toggle('is-active', idx === 0));
+      gallery.querySelectorAll('[data-zg-img]').forEach((img, idx) => { img.hidden = idx !== 0; });
+    });
   });
 
   document.querySelectorAll('[data-copy-email]').forEach((button) => {
