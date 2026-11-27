@@ -2410,8 +2410,37 @@ body.is-editing [data-reveal] {
   padding: 44px 0 36px;
 }
 
+.hero-profile-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.hero-portrait {
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 14px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgba(31, 36, 43, 0.06);
+}
+
+.hero-portrait img {
+  display: block;
+  width: 84px;
+  height: 112px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center 16%;
+}
+
+.hero-profile-titles {
+  min-width: 0;
+}
+
 .hero-role-label {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: 13.5px;
   font-weight: 700;
   color: var(--accent);
@@ -2419,10 +2448,10 @@ body.is-editing [data-reveal] {
 }
 
 .landing-hero--clean h1.hook-title {
-  margin: 0 0 14px;
+  margin: 0;
   font-size: clamp(32px, 3.8vw, 44px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.04em;
   color: var(--ink);
 }
