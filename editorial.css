@@ -2843,6 +2843,20 @@ body.is-editing [data-reveal] {
   font-size: 14px;
 }
 
+.kkami-case .case-thumb { aspect-ratio: 16 / 9; min-height: 0; }
+.kkami-case .case-thumb img,
+.kkami-scenes img,
+.kkami-pv video { display: block; width: 100%; height: auto; border-radius: 8px; }
+.kkami-scenes, .kkami-pv { grid-column: 1 / -1; min-width: 0; }
+.kkami-scenes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.kkami-scenes figure { margin: 0; }
+.kkami-scenes figcaption { margin-top: 6px; color: var(--slate); font-size: .875rem; }
+.kkami-pv { border-top: 1px solid var(--border); padding-top: 12px; }
+.kkami-pv summary, .kkami-project-link { color: var(--ink); font-weight: 700; }
+.kkami-pv summary { cursor: pointer; }
+.kkami-pv video { margin-top: 12px; aspect-ratio: 16 / 9; background: #111; }
+.kkami-project-link { display: inline-block; margin-top: 12px; }
+
 body:has(#portfolio-grid .case-card) .portfolio-empty-note {
   display: none;
 }
