@@ -178,6 +178,182 @@
     }
   }
 
+  // Auto-advancing Home Banner Carousel synced with #portfolio-grid covers.
+  const homeCarousel = document.querySelector('[data-home-carousel]');
+  if (homeCarousel) {
+    const track = homeCarousel.querySelector('[data-carousel-track]');
+    const dotsWrap = homeCarousel.querySelector('[data-carousel-dots]');
+    const countEl = homeCarousel.querySelector('[data-carousel-count]');
+    const barEl = homeCarousel.querySelector('[data-carousel-bar]');
+    const prevBtn = homeCarousel.querySelector('[data-carousel-prev]');
+    const nextBtn = homeCarousel.querySelector('[data-carousel-next]');
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const INTERVAL_MS = 3800;
+    let activeIdx = 0;
+    let paused = false;
+    let elapsed = 0;
+    let lastTick = performance.now();
+
+    const extractBgUrl = (el) => {
+      const bg = el?.style?.backgroundImage || '';
+      const m = bg.match(/url\((['"]?)(.*?)\1\)/);
+      return m ? m[2] : '';
+    };
+
+    const syncPortfolioSlides = () => {
+      track.querySelectorAll('[data-portfolio-slide]').forEach((n) => n.remove());
+      const baseImgs = new Set([...track.querySelectorAll('[data-base-slide] img')].map((img) => img.getAttribute('src')));
+      if (portfolioGrid) {
+        [...portfolioGrid.querySelectorAll(':scope > .case-card')].forEach((card, cardIdx) => {
+          const title = card.querySelector('h2')?.textContent.trim() || '';
+          if (!title || title === '새 포트폴리오') return;
+          const desc = card.querySelector('.case-copy > p:not(.case-file)')?.textContent.trim() || '포트폴리오 문서';
+          const fileName = card.querySelector('.case-file-value')?.textContent.trim() || '';
+          const thumb = card.querySelector('.case-thumb');
+          const imgUrl = extractBgUrl(thumb) || thumb?.querySelector('img')?.getAttribute('src') || '';
+          if (imgUrl && baseImgs.has(imgUrl)) return;
+
+          const slide = document.createElement('article');
+          slide.className = 'home-carousel-slide';
+          slide.dataset.portfolioSlide = String(cardIdx);
+          slide.dataset.runtimeOnly = 'true';
+          slide.hidden = true;
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'home-carousel-card';
+          btn.dataset.carouselTarget = 'portfolio';
+          btn.dataset.portfolioIndex = String(cardIdx);
+
+          const media = document.createElement('div');
+          media.className = 'home-carousel-media';
+          if (imgUrl) {
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            img.alt = title + ' 표지';
+            img.loading = 'lazy';
+            media.append(img);
+          } else {
+            const docCover = document.createElement('div');
+            docCover.className = 'home-carousel-doc-cover';
+            const strong = document.createElement('strong');
+            strong.textContent = title;
+            const small = document.createElement('small');
+            small.textContent = fileName || 'PORTFOLIO DOCUMENT';
+            docCover.append(strong, small);
+            media.append(docCover);
+          }
+
+          const meta = document.createElement('div');
+          meta.className = 'home-carousel-meta';
+          const mTitle = document.createElement('strong');
+          mTitle.textContent = title;
+          const mSub = document.createElement('span');
+          mSub.textContent = fileName ? `${desc} · ${fileName}` : desc;
+          meta.append(mTitle, mSub);
+
+          btn.append(media, meta);
+          slide.append(btn);
+          track.append(slide);
+        });
+      }
+      renderState();
+    };
+
+    const getSlides = () => [...track.querySelectorAll('.home-carousel-slide')];
+
+    const renderState = () => {
+      const slides = getSlides();
+      if (!slides.length) return;
+      if (activeIdx >= slides.length) activeIdx = 0;
+      if (activeIdx < 0) activeIdx = slides.length - 1;
+
+      slides.forEach((slide, idx) => {
+        const active = idx === activeIdx;
+        slide.classList.toggle('is-active', active);
+        slide.hidden = !active;
+      });
+
+      if (countEl) {
+        countEl.textContent = `${String(activeIdx + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      }
+
+      if (dotsWrap) {
+        dotsWrap.replaceChildren(...slides.map((_, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'home-carousel-dot' + (idx === activeIdx ? ' is-active' : '');
+          dot.dataset.runtimeOnly = 'true';
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-selected', String(idx === activeIdx));
+          dot.setAttribute('aria-label', `${idx + 1}번 배너 보기`);
+          dot.addEventListener('click', () => goTo(idx));
+          return dot;
+        }));
+      }
+    };
+
+    const goTo = (idx) => {
+      activeIdx = idx;
+      elapsed = 0;
+      if (barEl) barEl.style.width = '0%';
+      renderState();
+    };
+
+    prevBtn?.addEventListener('click', () => goTo(activeIdx - 1));
+    nextBtn?.addEventListener('click', () => goTo(activeIdx + 1));
+
+    track.addEventListener('click', (event) => {
+      const cardBtn = event.target.closest('[data-carousel-target]');
+      if (!cardBtn) return;
+      const targetView = cardBtn.dataset.carouselTarget;
+      const portfolioIdx = cardBtn.dataset.portfolioIndex;
+      const navTab = document.querySelector(`.view-tab[data-view="${targetView}"]`);
+      navTab?.click();
+      if (targetView === 'resume') {
+        window.requestAnimationFrame(() => document.getElementById('project-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      } else if (targetView === 'portfolio' && portfolioIdx != null && portfolioGrid) {
+        window.requestAnimationFrame(() => {
+          const cards = [...portfolioGrid.querySelectorAll(':scope > .case-card')];
+          cards[Number(portfolioIdx)]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    });
+
+    homeCarousel.addEventListener('pointerenter', () => { paused = true; });
+    homeCarousel.addEventListener('pointerleave', () => { paused = false; lastTick = performance.now(); });
+    homeCarousel.addEventListener('focusin', () => { paused = true; });
+    homeCarousel.addEventListener('focusout', () => { paused = false; lastTick = performance.now(); });
+
+    const loop = (now) => {
+      const dt = now - lastTick;
+      lastTick = now;
+      const onCover = document.body.classList.contains('is-cover-page');
+      const editing = document.body.classList.contains('is-editing');
+      const slides = getSlides();
+      if (!paused && !editing && onCover && !document.hidden && slides.length > 1 && !reduced) {
+        elapsed += dt;
+        if (barEl) barEl.style.width = `${Math.min(100, (elapsed / INTERVAL_MS) * 100).toFixed(1)}%`;
+        if (elapsed >= INTERVAL_MS) {
+          goTo(activeIdx + 1);
+        }
+      }
+      window.requestAnimationFrame(loop);
+    };
+
+    syncPortfolioSlides();
+    document.addEventListener('portfolio:edit-change', syncPortfolioSlides);
+    if (portfolioGrid) {
+      new MutationObserver(syncPortfolioSlides).observe(portfolioGrid, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'src'],
+      });
+    }
+    window.requestAnimationFrame((now) => { lastTick = now; loop(now); });
+  }
+
   // Hero featured build switcher.
   document.querySelectorAll('[data-showcase]').forEach((showcase) => {
     const tabs = [...showcase.querySelectorAll('[data-showcase-tab]')];
@@ -242,6 +418,17 @@
     saved.querySelectorAll('[data-zg-gallery]').forEach((gallery) => {
       gallery.querySelectorAll('[data-zg-btn]').forEach((btn, idx) => btn.classList.toggle('is-active', idx === 0));
       gallery.querySelectorAll('[data-zg-img]').forEach((img, idx) => { img.hidden = idx !== 0; });
+    });
+    saved.querySelectorAll('[data-home-carousel]').forEach((carousel) => {
+      const baseSlides = [...carousel.querySelectorAll('[data-base-slide]')];
+      baseSlides.forEach((slide, idx) => {
+        slide.classList.toggle('is-active', idx === 0);
+        slide.hidden = idx !== 0;
+      });
+      const count = carousel.querySelector('[data-carousel-count]');
+      if (count) count.textContent = `01 / ${String(Math.max(1, baseSlides.length)).padStart(2, '0')}`;
+      const bar = carousel.querySelector('[data-carousel-bar]');
+      if (bar) bar.style.width = '0%';
     });
   });
 
