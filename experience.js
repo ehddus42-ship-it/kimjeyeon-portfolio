@@ -311,7 +311,7 @@
       const navTab = document.querySelector(`.view-tab[data-view="${targetView}"]`);
       navTab?.click();
       if (targetView === 'resume') {
-        window.requestAnimationFrame(() => document.getElementById('project-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        window.requestAnimationFrame(() => document.getElementById(cardBtn.dataset.projectAnchor || 'project-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
       } else if (targetView === 'portfolio' && portfolioIdx != null && portfolioGrid) {
         window.requestAnimationFrame(() => {
           const cards = [...portfolioGrid.querySelectorAll(':scope > .case-card')];
