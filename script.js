@@ -26,7 +26,7 @@
       const reorderableSelector = '.project-card, .tool, .game-card, .essay-card, .case-card, .landing-project, .landing-highlight';
       let pendingImageSlot = null;
       let pendingFileSlot = null;
-      const routeNames = new Set(['home', 'resume', 'cover-letter', 'portfolio', 'updates']);
+      const routeNames = new Set(['home', 'resume', 'cover-letter', 'cover-letter-long', 'portfolio', 'updates']);
 
       function announce(name, detail) {
         document.dispatchEvent(new CustomEvent(name, { bubbles: true, detail }));
@@ -494,8 +494,10 @@
 
       function syncNavigation(viewId, updateHash) {
         document.querySelectorAll('video').forEach((video) => video.pause());
+        const navViewId = viewId === 'cover-letter-long' ? 'cover-letter' : viewId;
         landingPageLinks.forEach((link) => {
-          if (link.dataset.pageTarget === viewId) link.setAttribute('aria-current', 'page');
+          const matchTarget = link.closest('.primary-nav') ? navViewId : viewId;
+          if (link.dataset.pageTarget === matchTarget) link.setAttribute('aria-current', 'page');
           else link.removeAttribute('aria-current');
         });
         coverHomeLinks.forEach((link) => {
@@ -517,8 +519,9 @@
         const activePanel = panels.find((panel) => panel.id === viewId);
         if (!activePanel) return;
         document.body.classList.remove('is-cover-page');
+        const tabViewId = viewId === 'cover-letter-long' ? 'cover-letter' : viewId;
         tabs.forEach((tab) => {
-          const selected = tab.dataset.view === viewId;
+          const selected = tab.dataset.view === tabViewId;
           tab.classList.toggle('is-active', selected);
           tab.setAttribute('aria-selected', String(selected));
           tab.setAttribute('tabindex', selected ? '0' : '-1');

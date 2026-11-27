@@ -2067,15 +2067,84 @@ body:not(.is-editing) .game-image:not(.game-new) span {
 .game-empty { padding: 24px 0; font-size: 13.5px; color: var(--slate); }
 
 /* Cover Letter View — Single Essay Layout with Typographic Measure (39.5em) */
+.cover-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1020px;
+}
+
+.cover-version-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(163, 78, 54, 0.36);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cover-version-btn:hover,
+.cover-version-btn:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(163, 78, 54, 0.18);
+}
+
+.cover-version-btn--back {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--graphite);
+}
+
+.cover-version-btn--back:hover,
+.cover-version-btn--back:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.cover-more-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1020px;
+  margin-top: 16px;
+  padding: 20px 26px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.cover-more-note {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--slate);
+  word-break: keep-all;
+}
+
 .cover-grid {
   max-width: 1020px;
   gap: 16px;
 }
 
 .cover-step,
-.cover-step:nth-child(1),
-.cover-step:nth-child(3),
-.cover-step:nth-child(4) {
+.cover-step:nth-child(n) {
   display: grid;
   grid-template-columns: 248px minmax(0, 39.5em);
   gap: 48px;
@@ -2305,9 +2374,7 @@ body.is-editing [data-reveal] {
   .profile-panel { position: static; display: grid; grid-template-columns: 180px 1fr; }
   .photo-slot { border-bottom: 0; border-right: 1px solid var(--border); height: 100%; }
   .cover-step,
-  .cover-step:nth-child(1),
-  .cover-step:nth-child(3),
-  .cover-step:nth-child(4) { grid-template-columns: 1fr; gap: 24px; padding: 26px 24px; }
+  .cover-step:nth-child(n) { grid-template-columns: 1fr; gap: 24px; padding: 26px 24px; }
   .essay-heading { position: static; }
   .essay-shift {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2361,10 +2428,11 @@ body.is-editing [data-reveal] {
   .profile-panel { display: block; }
   .photo-slot { border-right: 0; border-bottom: 1px solid var(--border); padding: 20px; }
   .section-card { padding: 20px 16px; }
+  .cover-head { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .cover-more-bar { padding: 18px; flex-direction: column; align-items: stretch; gap: 12px; }
+  .cover-more-bar .cover-version-btn { width: 100%; }
   .cover-step,
-  .cover-step:nth-child(1),
-  .cover-step:nth-child(3),
-  .cover-step:nth-child(4) { padding: 22px 18px; gap: 20px; }
+  .cover-step:nth-child(n) { padding: 22px 18px; gap: 20px; }
   .essay-heading h2 br { display: none; }
   .cover-copy { gap: 14px; }
   .cover-copy p,
