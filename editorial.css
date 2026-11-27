@@ -2066,10 +2066,10 @@ body:not(.is-editing) .game-image:not(.game-new) span {
 .library-more:hover { border-color: var(--accent); color: var(--accent); }
 .game-empty { padding: 24px 0; font-size: 13.5px; color: var(--slate); }
 
-/* Cover Letter View — Typographic Measure (39.5em) & Balanced 2-Line Headings */
+/* Cover Letter View — Single Essay Layout with Typographic Measure (39.5em) */
 .cover-grid {
-  max-width: 980px;
-  gap: 14px;
+  max-width: 1020px;
+  gap: 16px;
 }
 
 .cover-step,
@@ -2077,17 +2077,18 @@ body:not(.is-editing) .game-image:not(.game-new) span {
 .cover-step:nth-child(3),
 .cover-step:nth-child(4) {
   display: grid;
-  grid-template-columns: 220px minmax(0, 39.5em);
-  gap: 44px;
+  grid-template-columns: 248px minmax(0, 39.5em);
+  gap: 48px;
   align-items: start;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 32px 38px;
+  padding: 40px 44px;
 }
 
 .essay-heading {
-  position: static;
+  position: sticky;
+  top: 104px;
 }
 
 .essay-heading > span {
@@ -2097,35 +2098,86 @@ body:not(.is-editing) .game-image:not(.game-new) span {
 }
 
 .essay-heading h2 {
-  font-size: 20px;
-  letter-spacing: -0.03em;
-  line-height: 1.48;
-  margin: 12px 0 0;
+  font-size: 24px;
+  letter-spacing: -0.035em;
+  line-height: 1.42;
+  margin: 14px 0 0;
   color: var(--ink);
   word-break: keep-all;
 }
 
-.cover-copy {
+.essay-shift {
+  margin: 24px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
   gap: 13px;
+}
+
+.essay-shift > div {
+  display: grid;
+  gap: 3px;
+}
+
+.essay-shift dt {
+  font: 700 10.5px/1.2 var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--slate);
+}
+
+.essay-shift > div:nth-child(2) dt {
+  color: var(--accent);
+}
+
+.essay-shift dd {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--graphite);
+  word-break: keep-all;
+}
+
+.essay-shift > div:nth-child(2) dd {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.cover-copy {
+  gap: 20px;
   max-width: 39.5em;
 }
 
-.cover-copy p {
-  font-size: 15px;
-  line-height: 1.88;
+.cover-copy p,
+.cover-copy p:first-child {
+  font-size: 15.2px;
+  line-height: 1.9;
   letter-spacing: -0.01em;
   padding-left: 0;
   border: 0;
   color: var(--graphite);
-  font-weight: 430;
+  font-weight: 440;
   word-break: keep-all;
   overflow-wrap: break-word;
   font-variant-numeric: tabular-nums;
 }
 
-.cover-copy p:first-child {
+.cover-copy p.cover-hook {
+  font-size: 18.5px;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+  font-weight: 700;
   color: var(--ink);
-  font-weight: 500;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 2px;
+}
+
+.cover-copy p.cover-closing {
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-strong);
+  color: var(--ink);
+  font-weight: 520;
 }
 
 /* Updates View */
