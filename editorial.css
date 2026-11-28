@@ -2146,8 +2146,8 @@ body:not(.is-editing) .game-image:not(.game-new) span {
 .cover-step,
 .cover-step:nth-child(n) {
   display: grid;
-  grid-template-columns: 248px minmax(0, 39.5em);
-  gap: 48px;
+  grid-template-columns: 268px minmax(0, 39.5em);
+  gap: 44px;
   align-items: start;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -2173,6 +2173,7 @@ body:not(.is-editing) .game-image:not(.game-new) span {
   margin: 14px 0 0;
   color: var(--ink);
   word-break: keep-all;
+  text-wrap: balance;
 }
 
 .essay-shift {
@@ -2227,6 +2228,7 @@ body:not(.is-editing) .game-image:not(.game-new) span {
   font-weight: 440;
   word-break: keep-all;
   overflow-wrap: break-word;
+  text-wrap: pretty;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2239,6 +2241,7 @@ body:not(.is-editing) .game-image:not(.game-new) span {
   padding: 2px 0 2px 16px;
   border-left: 3px solid var(--accent);
   margin-bottom: 2px;
+  text-wrap: balance;
 }
 
 .cover-copy p.cover-closing {
